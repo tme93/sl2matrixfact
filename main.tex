@@ -104,7 +104,7 @@ We verify link invariance of a certain construction using matrix factorizations 
 
 
 
-\section{The construction}
+\section{Matrix factorizations}
 
 Let $\DD_0$ be a dotted edge and $\DD_1$ be a thick edge. 
 
@@ -124,20 +124,42 @@ We assign Koszul matrix factorizations
 \end{align*}
 
 Given two matrix factorizations of the form
-$$M=[\mfshort{  A}{\hslash B}{}{}],\qquad M'=[\mfshort{A'}{\hslash  B'}{}{}],$$
+$$
+M=[\mfshort{  A}{\hslash B}{}{}]
+,\qquad 
+M'=[\mfshort{A'}{\hslash  B'}{}{}]
+,
+$$
+
 with $A,A',B$ and $B'$ concentrated in $\hslash$-degree 0, we often specify morphisms by spelling out their components in each $\hslash$-degree as follows:
 \[
 \begin{tikzcd}
-    M \arrow[d, "{\hslash^0(\alpha,\beta)}",swap] \\ M'
+    M 
+    \arrow[d, "{\hslash^0(\alpha,\beta)}",swap] 
+    \\ 
+    M'
 \end{tikzcd}
 =
 \begin{tikzcd}
-    {} [ \: A \arrow[d, "\alpha", shift left=3pt]\arrow[r, out=5, in=175, bend left=10]  &  \hslash B\:]\arrow[d, "\beta", shift right=1pt] \arrow[l, out=185, in=-5, swap]\\
-   {}  [\:A' \arrow[r, out=5, in=175, bend left=10]& 
-    \hslash B' \arrow[l, out=185, in=-5, swap]\:]
-\end{tikzcd}\qquad\qquad 
+    {} [ \: A \arrow[d, "\alpha", shift left=3pt]
+    \arrow[r, out=5, in=175, bend left=10]  
+    &  
+    \hslash B\:]
+    \arrow[d, "\beta", shift right=1pt] 
+    \arrow[l, out=185, in=-5, swap]
+    \\
+   	{}  [\:A' 
+   	\arrow[r, out=5, in=175, bend left=10]
+   	& 
+    \hslash B' \:]
+    \arrow[l, out=185, in=-5, swap]
+\end{tikzcd}
+\qquad\qquad 
 \begin{tikzcd}
-    M \arrow[d, "{\hslash^1(\alpha,\beta)}",swap] \\ M'
+    M 
+    \arrow[d, "{\hslash^1(\alpha,\beta)}",swap] 
+    \\ 
+    M'
 \end{tikzcd}
 =
 \begin{tikzcd}
@@ -147,22 +169,40 @@ with $A,A',B$ and $B'$ concentrated in $\hslash$-degree 0, we often specify morp
 \end{tikzcd}
 \]
 Many useful maps can be easily expressed in this notation. For instance, the differential $d_M:M\to M$ itself takes the form
-$$d_m=\hslash^1 (d_0,d_1)$$
+$$
+d_m=\hslash^1 (d_0,d_1)
+$$
 In the case $M'=\hslash M$ we use the special notation
-$$s_\hslash =\hslash^1(1,1):M\to \hslash M$$
+$$
+s_\hslash =\hslash^1(1,1):M\to \hslash M
+.
+$$
 
 For Koszul matrix factorizations, we will take the convention
-$$K_{R}(a\sc b)=\mfshort{q^{\deg_q(a)+3}R}{ \hslash R}{a}{b}.$$
+$$
+K_{R}(a\sc b)=\mfshort{q^{\deg_q(a)+3}R}{ \hslash R}{a}{b}
+.
+$$
 
 Here, the grading $\hslash$ is a $\Z/2$ grading. A shift $\hbar M$ on a matrix factorization $M$ has the additional effect of switching the sign of all differentials. This helps us keep track of Koszul sign rules for tensor products of matrix factorizations. Namely, if we tensor a Koszul factorization $K_{R}(a\sc b)$ with some other matrix factorization $M$, we can write
-$$K_{R}(a\sc b)\otimes M =\left[ \mfshort{q^{\deg_q(a)+3}M}{\hslash M}{a}{b} \right],$$
+$$
+K_{R}(a\sc b)\otimes M =\left[ \mfshort{q^{\deg_q(a)+3}M}{\hslash M}{a}{b} \right]
+,
+$$
 which indicates that the tensor product splits, as free $R$-module, into two copies of $M$, with the first one shifted in $q$ and $\hslash$ degrees. In terms of this decomposition, the total differential takes the form
-$$d_{K_{R}(a\sc b)\otimes M} = \begin{pmatrix}
-    d_M & b \\ a & -d_M
-\end{pmatrix},$$
+$$
+d_{K_{R}(a\sc b)\otimes M} 
+= 
+\begin{pmatrix}
+   	d_M & b 
+   	\\ 
+   	a & -d_M
+\end{pmatrix}
+,
+$$
 where the negative sign comes precisely from the $\hslash$-shift. Observe also that here $a$ and $b$ are understood to have $\hslash$-degree 1, and they could be more explicitly denoted by $\hslash^1(a,a)$ and $\hslash^1(b,b)$, respectively.
 
-If we want to switch the sign of differentials without altering the $\hslash$ degree, we write $-M$. Using these notations, we have \todo{not sure if I need this}
+If we want to switch the sign of differentials in $M$ without altering the $\hslash$ degree, we write $-M$. Using these notations, we have \todo{not sure if I need this}
 \begin{align*}
     \hbar (M\otimes N) &= (\hbar M)\otimes N = (-M)\otimes(\hbar N)
 \end{align*}
@@ -178,21 +218,62 @@ with $i_j=0$ or $1$.
 
 \section{Hom spaces}
 
-Given two webs $\DD_1$ and $\DD_2$ with the same boundary, we want a good handle of the space $$Hom(M(\DD_2),M(\DD_1)).$$
+%Given two webs $\DD_1$ and $\DD_2$ with the same boundary, we want a good handle of the space $$Hom(M(\DD_2),M(\DD_1)).$$
+%
+%First, we need to understand closed webs. Let $\DD$ be a closed web
+%
+%When we glue the mirror $\DD_1$ and the mirror $\overline\DD_2$ along the boundary, we obtain a closed web denoted $\DD_1\cup \overline\DD_2$
 
-First, we need to understand closed webs. Let $\DD$ be a closed web
+%
+%
+%\begin{lemma}
+%$$\Ext(M(\DD_2),M(\DD_1))\cong H(M(\DD_1\cup \overline\DD_2))$$
+%\end{lemma}
 
-When we glue the mirror $\DD_1$ and the mirror $\overline\DD_2$ along the boundary, we obtain a closed web denoted $\DD_1\cup \overline\DD_2$
+\section{Matrix factorizations associated to webs and tangles}
+The base ring is $\mathbf K=\Z[H]$, and the elementary matrix factorizations are over $R=\mathbf K[x_0-x_1,x_2-x_1,x_3-x_2]$.
+\todo{it seems like $H-(x_3-x_1)$ in Caludius' paper has the wrong sign if we want to get the correct potential. I'm swapping the sign}
+
+\begin{align*}
+	D_0=\ThinEdgeStandard 
+	&\longmapsto M(D_0)=\left[\mf{q R}{\hslash R}{x_0-x_2}{(x_0+x_2-x_1-x_3)((x_3-x_1)-H)}\right]
+	\\
+	D_1=\ThickEdgeStandard 
+	&\longmapsto M(D_1)=\left[\mf{q \hslash R}{ R}{(x_3-x_1)-H}{(x_0+x_2-x_1-x_3)(x_0-x_2)}\right]
+\end{align*}
+\todo{seems like we should swap all the $\hslash$ degrees here. maybe even in the definition of koszul}
+
+When working locally, other boundary orientations are also possible. Thus, we also define
+\begin{align*}
+	D_2=\UnorientedHorizontalThinEdgeStandard 
+	&
+	\longmapsto M(D_2)=\left[\mf{q R}{\hslash R}{x_0-x_2}{(x_0+x_2-x_1-x_3-H)(x_3-x_1)}\right]
+	\\
+	D_3=\UnorientedVerticalThinEdgeStandard 
+	&
+	\longmapsto M(D_3)=\left[\mf{q R}{\hslash R}{x_1-x_3}{(x_0+x_2-x_1-x_3-H)(x_2-x_0)}\right]
+\end{align*}
+In all three types of thin edges, there is a \emph{negative region} whose variable appears with a negative sign in the linear term of the associated matrix factorization. In the case of $D_2$ and $D_3$ there is a 180 degree rotational symmetry. To avoid ambiguity, we indicate the negative region by a little dash.
+
+\todo{arrows somehow ruin the symmetry of the pics}
 
 
+The elementary matrix factorizations can be expressed as
+\begin{align*}
+	M(D_0)
+	&
+	=K_R(x_0-x_2\sc(x_0+x_2-x_1-x_3)((x_3-x_1)-H))
+	\\
+	M(D_1)    
+	&
+	= qK_R((x_0+x_2-x_1-x_3)(x_0-x_2)\sc (x_3-x_1)-H)
+	\\
+	&
+	=\hslash K_R(H-(x_3-x_1)\sc(x_0+x_2-x_1-x_3)(x_2-x_0))
+\end{align*}
 
-\begin{lemma}
-$$\Ext(M(\DD_2),M(\DD_1))\cong H(M(\DD_1\cup \overline\DD_2))$$
-\end{lemma}
+Notice that $R$ is the subring of the polynomial ring in all face variables generated by differences across edges. We refer to $R$ as the \emph{edge ring}, and we extend this nomenclature to more general webs in the expected way. The particular case $R=\mathbf K[x_0-x_1,x_2-x_1,x_3-x_2]$ is refered to as the \emph{standard edge ring}. We will often omit the specification of the edge ring when face variables are already indicated in the web diagram.
 
-\begin{proposition}
-
-\end{proposition}
 
 \section{Invariance}
 
@@ -304,13 +385,18 @@ q^{-1}\scalebox{0.7}{\ThinEdgeAndCircle{}{}{}}
 
 Concerning Reidemeister 2, here is what we do now
 
-\[\label{r2sdr}
-\begin{tikzcd}[row sep=-0.1cm, column sep=3cm]
-& 
+\[\label{r2asdr}
+\begin{tikzcd}[row sep=-0.1cm, column sep=2cm]
+&
+\scalebox{0.7}{\ThinEdge{}{}{}{}}
+\arrow[d, color=ForestGreen, shift right=1.5]
+&
+\\[4em]&
 \scalebox{0.7}{\ThinEdge{}{}{}{}}
 \arrow[dr]
 \arrow[ddd, bend left=40, color=violet, shift right=1.5, dash pattern=on 40pt off 35pt]
 \arrow[leftarrow, ddd, bend left=40, color=violet, shift left=1.5, dash pattern=on 39.5pt off 37pt]
+\arrow[u, color=ForestGreen, shift right=1.5]
 &
 \\
 q^{-1}h^{-1}\hslash\scalebox{0.7}{\ThickEdge{}{}{}{}} 
@@ -339,7 +425,7 @@ q^{-1}h^{-1}\hslash\scalebox{0.7}{\ThinThick{}{}{}{}{}}
 \arrow[dr]
 \arrow[uuu, color=violet, shift right=1.5]
 && 
-qh\hslash\scalebox{0.7}{\ThinThick{}{}{}{}{}}
+qh\hslash\scalebox{0.7}{\ThickThin{}{}{}{}{}}
 \arrow[uuu, color=violet, shift right=1.5]
 \arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
 \\
@@ -348,10 +434,66 @@ qh\hslash\scalebox{0.7}{\ThinThick{}{}{}{}{}}
 \arrow[ur]
 \arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet] 
 &
-\arrow[ddd, from=3-2, to=6-2, bend right=40, crossing over, color=violet, shift right=1.5] 
-\arrow[uuu, from=6-2, to=3-2, bend left=40, crossing over, color=violet, shift right=1.5] 
-\arrow[ur, from=3-2, to=2-3, crossing over] 
-\arrow[rr, from=2-1, to=2-3, crossing over] 
+\arrow[ddd, from=4-2, to=7-2, bend right=40, crossing over, color=violet, shift right=1.5] 
+\arrow[uuu, from=7-2, to=4-2, bend left=40, crossing over, color=violet, shift right=1.5] 
+\arrow[ur, from=4-2, to=3-3, crossing over] 
+\arrow[rr, from=3-1, to=3-3, crossing over] 
+\end{tikzcd}
+\]
+
+\[\label{r2bsdr}
+\begin{tikzcd}[row sep=-0.1cm, column sep=2cm]
+	&
+	\scalebox{0.7}{\UnorientedVerticalThinEdge{}{}{}{}}
+	\arrow[d, color=ForestGreen, shift right=1.5]
+	&
+	\\[4em]&
+	\scalebox{0.7}{\UnorientedVerticalThinEdge{}{}{}{}}
+	\arrow[dr]
+	\arrow[ddd, bend left=40, color=violet, shift right=1.5, dash pattern=on 40pt off 35pt]
+	\arrow[leftarrow, ddd, bend left=40, color=violet, shift left=1.5, dash pattern=on 39.5pt off 37pt]
+	\arrow[u, color=ForestGreen, shift right=1.5]
+	&
+	\\
+	q^{-1}h^{-1}\hslash\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}} 
+	\arrow[dr]
+	\arrow[ur]
+	\arrow[ddd, color=violet, shift right=1.5]
+	&
+	&
+	qh\hslash\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}}
+	\arrow[ddd, color=violet, shift right=1.5]
+	\\
+	& 
+	q\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}}\oplus q^{-1}\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}}
+	\arrow[ur, crossing over] 
+	&
+	\\[2em]
+	& 
+	\scalebox{0.7}{\Square{}{}{}{}{}{}}
+	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
+	\arrow[dr]
+	&
+	\\
+	q^{-1}h^{-1}\hslash\scalebox{0.7}{\ThinThickUnoriented{}{}{}{}{}} 
+	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
+	\arrow[ur]
+	\arrow[dr]
+	\arrow[uuu, color=violet, shift right=1.5]
+	&& 
+	qh\hslash\scalebox{0.7}{\ThickThinUnoriented{}{}{}{}{}}
+	\arrow[uuu, color=violet, shift right=1.5]
+	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
+	\\
+	& 
+	\scalebox{0.7}{\ThinThinUnoriented{}{}{}{}{}} 
+	\arrow[ur]
+	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet] 
+	&
+	\arrow[ddd, from=4-2, to=7-2, bend right=40, crossing over, color=violet, shift right=1.5] 
+	\arrow[uuu, from=7-2, to=4-2, bend left=40, crossing over, color=violet, shift right=1.5] 
+	\arrow[ur, from=4-2, to=3-3, crossing over] 
+	\arrow[rr, from=3-1, to=3-3, crossing over] 
 \end{tikzcd}
 \]
 
@@ -374,6 +516,7 @@ of the form
     &M/fM\ar[dd, shift right=0.6ex, "I_v", swap]\ar[dd, leftarrow, shift left=0.6ex, "P"]\arrow[ddl, "I_d", bend right=20, swap]\\\\
     q^{3-2n}\hslash M\arrow[r, "f", shift left=0.5ex, bend left=20]& M\ar[l, "H"]\arrow[l, "g", shift left=0.5ex, bend left=20], 
 \end{tikzcd}$$
+\todo{in order to keep this result clean, it is better to keep the old convention for Koszul m.f.}
 The arrows are as follows:
 \begin{itemize}
     \item $P$ is the usual projection.
@@ -383,8 +526,79 @@ The arrows are as follows:
 \end{itemize}
 \end{lemma}
 
+\begin{proof}
+The identities $HI=0$, $PH=0$, $PI=1$ and $H^2=0$ are straightforward.
+The identity $d_{\overline M}H+H d_{\overline M} +1_{\overline M}=IP$ is verified as follows. Take $(x,y)\in q^{3-2n}M\hslash \oplus M=\overline M$. We compute directly, keeping in mind that $\Res_f(z)=z-f\Quo_f(z)$ and $\Quo_f(fz)=z$:
+\begin{align*}
+	(d_{\overline M}H+H d_{\overline M} +1_{\overline M})(x,y)
+	&
+	=(-\Quo_f(fx)+x -\Quo_f(d_M(y))-d_M(-\Quo_f(y)), -f\Quo_f(y) +y)
+	\\
+	&
+	=( -\Quo_f(d_M(y))+d_M(\Quo_f(y)), \Res_f(y))
+	,
+\end{align*}
+while
+\begin{align*}
+	IP(x,y)
+	&
+	=(I_d([y]), I_v([y]))
+	\\
+	&
+	=(-\Quo_f(d_M(\Res_f(y))),\Res_f(y))
+	\\
+	&
+	=(-\Quo_f(d_M(y-f\Quo_f(y))),\Res_f(y))
+	\\
+	&
+	=(-\Quo_f(d_M(y))+\Quo_f(fd_M(\Quo_f(y))),\Res_f(y))
+	\\
+	&
+	=(-\Quo_f(d_M(y))+d_M(\Quo_f(y)),\Res_f(y))
+	.
+\end{align*}
+It is also straightforward to verify that $P$ commutes with differentials. In the case of $I$, we have
+\begin{align*}
+	I(d_{M'}([x]))
+	&
+	=( -\Quo_f(d_M^2(x))+d_M(\Quo_f(d_{M}(x))), \Res_f(d_{M}(x)))
+	\\
+	&
+	=(d_M(\Quo_f(d_{M}(x))) -\Quo_f((\overline W -fg)x), \Res_f(d_{M}(x)))
+	,
+\end{align*}
+and
+\begin{align*}
+	d_{\overline M}(I([x]))
+	&
+	=d_{\overline M}(-\Quo_f(d_M(x))+d_M(\Quo_f(x)),\Res_f(x))
+	\\
+	&
+	= 
+	(d_M(\Quo_f(d_M(x)))-d^2_M(\Quo_f(x))+g\Res_f(x),
+	\\
+	&
+	\qquad\qquad d_M(\Res_f(x))-f\Quo_f(d_M(x))+fd_M(\Quo_f(x)))
+	\\
+	&
+	= 
+	(d_M(\Quo_f(d_M(x)))-(\overline W -fg)\Quo_f(x)+g(x-f\Quo_f(x)),
+	\\
+	&
+	\qquad\qquad d_M(\Res_f(x)+f\Quo_f(x))-f\Quo_f(d_M(x)))
+		\\
+	&
+	= 
+	(d_M(\Quo_f(d_M(x)))-\overline W\Quo_f(x)+gx, d_M(x)-f\Quo_f(d_M(x)))
+	\\
+	&
+	=(d_M(\Quo_f(d_{M}(x))) -\Quo_f((\overline W -fg)x), \Res_f(d_{M}(x)))
+	.
+\end{align*}
+\end{proof}
 
-In many cases of interest, we additionally have decompositions $M/fM=\bigoplus_{i=0}^{k}M_i$ as matrix factorizations over $R$. Such an identification, in conjunction with the lemma, will then produce a special deformation retract that simplifies $M$ into a sum of simpler matrix factorizations over a ring with one less variable.
+
+In many cases of interest, we additionally have a decomposition $M/fM=\bigoplus_{i=0}^{k}M_i$ as matrix factorizations over $R$. Such an identification, together with the preceding lemma, will often produce a special deformation retract that simplifies $M$ into a sum of simpler matrix factorizations over a ring involving one less variable.
 
 The following is a straightforward corollary.
 
@@ -449,39 +663,9 @@ $$
 %     M\arrow[r, "f", shift left=0.5ex, bend left=20]& M\ar[l, "\Quo_f"]\arrow[l, "g", shift left=0.5ex, bend left=20], 
 % \end{tikzcd}$$
 
-% \input{moyrational}
+\input{moyrational}
 
-\end{document}
 \subsection{MOY moves in $\uone$-equivariant $\sl_2$}
-The base ring is $\mathbf K=\Z[H]$, and the elementary matrix factorizations are over $R=\mathbf K[x_0-x_1,x_2-x_1,x_3-x_2]$.
-
-\todo{it seems like $H-(x_3-x_1)$ in Caludius' paper has the wrong sign if we want to get the correct potential. I'm swapping the sign}
-
-\begin{align*}
-    D_0=\ThinEdgeStandard &\longmapsto M(D_0)=\left[\mf{q\hslash R}{R}{x_0-x_2}{(x_0+x_2-x_1-x_3)((x_3-x_1)-H)}\right]\\
-    D_1=\ThickEdgeStandard &\longmapsto M(D_1)=\left[\mf{q R}{\hslash R}{(x_3-x_1)-H}{(x_0+x_2-x_1-x_3)(x_0-x_2)}\right]
-\end{align*}\todo{seems like we should swap all the $\hslash$ degrees here. maybe even in the definition of koszul}
-
-When working locally, other boundary orientations are also possible. Thus, we also define
-\begin{align*}
-D_2=\UnorientedHorizontalThinEdgeStandard &\longmapsto M(D_2)=\left[\mf{q\hslash R}{R}{x_0-x_2}{(x_0+x_2-x_1-x_3-H)(x_3-x_1)}\right]\\
-D_3=\UnorientedVerticalThinEdgeStandard &\longmapsto M(D_3)=\left[\mf{q\hslash R}{R}{x_1-x_3}{(x_0+x_2-x_1-x_3-H)(x_2-x_0)}\right]
-\end{align*}
-Observe that in all three types of thin edges, there is a \emph{negative region} whose variable appears with a negative sign in the linear term of the associated matrix factorization. In the case of $D_2$ and $D_3$ there is a 180 degree rotational symmetry. To avoid ambiguity, we indicate the negative region by a little dash.
-
-\todo{arrows somehow ruin the symmetry of the pics}
-
-
-The elementary matrix factorizations can be expressed as
-\begin{align*}
-    M(D_0)&=K_R(x_0-x_2\sc(x_0+x_2-x_1-x_3)((x_3-x_1)-H))\\
-    M(D_1)    &= qK_R((x_0+x_2-x_1-x_3)(x_0-x_2)\sc (x_3-x_1)-H)\\
-    &=\hslash K_R(H-(x_3-x_1)\sc(x_0+x_2-x_1-x_3)(x_2-x_0))
-\end{align*}
-
-Notice that $R$ is the subring of the polynomial ring in all face variables generated by differences across edges. We refer to $R$ as the \emph{edge ring}, and we extend this nomenclature to more general webs in the expected way. The particular case $R=\mathbf K[x_0-x_1,x_2-x_1,x_3-x_2]$ is refered to as the \emph{standard edge ring}. We will often omit the specification of the edge ring when variables are already explicit in the web diagram.
-
-
 
 Let us write some explicit special deformation retracts that can be used for computations and proof of invariance. 
 
@@ -607,53 +791,54 @@ Here $d=\begin{pmatrix}\alpha & 0\\ 0 & \delta \end{pmatrix}$ and $D=\begin{pmat
    (h_1\beta h_2\gamma)^i & 0\\ 0& (h_2\gamma h_1\beta )^i
 \end{pmatrix}.$$
 
-% $$D'=
-% \begin{pmatrix}
-%     \epsilon & p\beta \\
-%     \gamma i & \delta + \gamma h\beta
-% \end{pmatrix}, 
-% \quad P= 
-% \begin{pmatrix}
-%     p &  0
-%     \\
-%     \gamma h & 1 
-% \end{pmatrix},
-% \quad I= 
-% \begin{pmatrix}
-%     i & h\beta \\
-%     0& 1 
-% \end{pmatrix},
-% \quad H= 
-% \begin{pmatrix}
-%     h & 0\\
-%     0& 0
-% \end{pmatrix}.$$
+ $$D'=
+ \begin{pmatrix}
+     \epsilon & p\beta \\
+     \gamma i & \delta + \gamma h\beta
+ \end{pmatrix}, 
+ \quad P= 
+ \begin{pmatrix}
+     p &  0
+     \\
+     \gamma h & 1 
+ \end{pmatrix},
+ \quad I= 
+ \begin{pmatrix}
+     i & h\beta \\
+     0& 1 
+ \end{pmatrix},
+ \quad H= 
+ \begin{pmatrix}
+     h & 0\\
+     0& 0
+ \end{pmatrix}.$$
 Since $\beta_0=0$ and $\gamma_0=0$ and $h_1$ and $h_2$ can lower filtration degree at most by 1, thus it is easy to verify that $A_0=0$. This implies $D'_0=\epsilon_0\oplus \eta_0$.
 \end{proof}
 
-% For the first Reidemeister move, we start with the following multifactorization over the ring $R=\Q[x_0-x_1]$:
-% $$\begin{tikzcd}[column sep=large, ]
-%     R[x_3-x_0]\ar[ddr, out=-60, in=120]&R[x_3-x_0] \ar[l,"(2x_0-x_1-x_3)Z", bend right=10, swap]\arrow[ddl, out=-120, in=60] \\\\
-%     R[x_3-x_0]\ar[r,"Z", bend right=10, swap]&R[x_3-x_0],
-% \end{tikzcd}$$
-% where $Z=Z(x_0-x_1,x_0-x_1,x_3-x_0)$
-% Here the cubical filtration degree increases downwards. We can apply Lemma \ref{SummandLemma} to obtain a special 0-deformation retract into a multifactorization
-% $\bigoplus_{i=0}^{n-1} R \to \bigoplus_{i=0}^{n-2}R$, with the differential described by a matrix
-% $$\left(\begin{array}{cccc} 1  &&&a_1\\&\ddots&&\vdots \\&&1&a_{n-1}
-% \end{array}\right)$$
-% where, up to rescaling, the $a_i$ appear as coefficients of lower order terms in $Z$ with respect to the variable $x_3-x_0$. The differential increases filtration degree 1, so the contractible summand $\bigoplus_{i=0}^{n-2} R \xrightarrow{1} \bigoplus_{i=0}^{n-2}R$ can be cancelled out by a 1-nulhomotopy. After this, we are left with a single copy of $R$.
+ For the first Reidemeister move, we start with the following multifactorization over the ring $R=\Q[x_0-x_1]$:
+ $$\begin{tikzcd}[column sep=large, ]
+     R[x_3-x_0]\ar[ddr, out=-60, in=120]&R[x_3-x_0] \ar[l,"(2x_0-x_1-x_3)Z", bend right=10, swap]\arrow[ddl, out=-120, in=60] \\\\
+     R[x_3-x_0]\ar[r,"Z", bend right=10, swap]&R[x_3-x_0],
+ \end{tikzcd}$$
+ where $Z=Z(x_0-x_1,x_0-x_1,x_3-x_0)$
+ Here the cubical filtration degree increases downwards. We can apply Lemma \ref{SummandLemma} to obtain a special 0-deformation retract into a multifactorization
+ $\bigoplus_{i=0}^{n-1} R \to \bigoplus_{i=0}^{n-2}R$, with the differential described by a matrix
+ $$\left(\begin{array}{cccc} 1  &&&a_1\\&\ddots&&\vdots \\&&1&a_{n-1}
+ \end{array}\right)$$
+ where, up to rescaling, the $a_i$ appear as coefficients of lower order terms in $Z$ with respect to the variable $x_3-x_0$. The differential increases filtration degree 1, so the contractible summand $\bigoplus_{i=0}^{n-2} R \xrightarrow{1} \bigoplus_{i=0}^{n-2}R$ can be cancelled out by a 1-nulhomotopy. After this, we are left with a single copy of $R$.
 
 
-% A similar argument applies to reduce
-% $$\begin{tikzcd}[column sep=large, ]
-%     R[x_3-x_0]\ar[ddr, out=-60, in=120]\ar[r,"Z", bend left=10]&R[x_3-x_0] \arrow[ddl, out=-120, in=60] \\\\
-%     R[x_3-x_0]&R[x_3-x_0]\ar[l,"(2x_0-x_1-x_3)Z", bend left=10],
-% \end{tikzcd}$$
-% into $R$ by a special 1-deformation retract.
+ A similar argument applies to reduce
+ $$\begin{tikzcd}[column sep=large, ]
+     R[x_3-x_0]\ar[ddr, out=-60, in=120]\ar[r,"Z", bend left=10]&R[x_3-x_0] \arrow[ddl, out=-120, in=60] \\\\
+     R[x_3-x_0]&R[x_3-x_0]\ar[l,"(2x_0-x_1-x_3)Z", bend left=10],
+ \end{tikzcd}$$
+ into $R$ by a special 1-deformation retract.
 
 
 
-% \section{Delooping of four-ended webs}
+ \section{Delooping of four-ended webs}
+ 
 
 
 

@@ -25,9 +25,6 @@
 
 \end{tikzpicture}
 }
-
-
-
 \newcommand{\ThickEdge}[4]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -56,9 +53,6 @@
 \end{tikzpicture}
 }
 
-
-
-
 \newcommand{\ThinEdgeStandard}{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -83,9 +77,6 @@
 
 \end{tikzpicture}
 }
-
-
-
 \newcommand{\ThinEdge}[4]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -110,10 +101,6 @@
 
 \end{tikzpicture}
 }
-
-
-
-
 
 \newcommand{\BigonStandard}[1]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
@@ -147,8 +134,6 @@
 
 \end{tikzpicture}
 }
-
-
 \newcommand{\Bigon}[5]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -182,8 +167,6 @@
 \end{tikzpicture}
 }
 
-
-
 \newcommand{\ThinThickStandard}[1]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -215,10 +198,6 @@
 
 \end{tikzpicture}
 }
-
-
-
-
 \newcommand{\ThinThick}[5]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -282,9 +261,6 @@
 
 \end{tikzpicture}
 }
-
-
-% General version with custom labels
 \newcommand{\ThickThin}[5]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -315,8 +291,6 @@
 
 \end{tikzpicture}
 }
-
-
 
 \newcommand{\SquareStandard}[1]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
@@ -352,7 +326,6 @@
 
 \end{tikzpicture}
 }
-
 \newcommand{\Square}[5]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -388,7 +361,6 @@
 \end{tikzpicture}
 }
 
-
 \newcommand{\ThinEdgeAndCircleStandard}{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -412,8 +384,6 @@
 
 \end{tikzpicture}
 }
-
-
 \newcommand{\ThinEdgeAndCircle}[3]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -457,7 +427,6 @@
 \end{tikzpicture}
 }
 
-
 \newcommand{\ThickEdgeAndCircleStandard}{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -482,8 +451,6 @@
 
 \end{tikzpicture}
 }
-
-
 \newcommand{\ThickEdgeAndCircle}[3]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -509,9 +476,6 @@
 \end{tikzpicture}
 }
 
-
-
-
 \newcommand{\ThinThinStandard}[1]{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 % Dotted circle
 \draw[dotted,thick] (0,0) circle (1cm);
@@ -532,13 +496,11 @@
 \node at (0.65,0) {$x_3$};
 
 \end{tikzpicture}}
-
-
 \newcommand{\ThinThin}[5]{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 % Dotted circle
 \draw[dotted,thick] (0,0) circle (1cm);
 
-% Thick and thin edge (flipped vertically)
+% Thin edges
 \draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (-0.25,-0.38) -- (0.25,-0.38);
 \draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (-0.25,0.38) -- (0.25,0.38);
 
@@ -555,7 +517,6 @@
 
 \end{tikzpicture}}
 
-
 \newcommand{\UnorientedHorizontalThinEdgeStandard}{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -563,9 +524,9 @@
 \draw[dotted,thick] (0,0) circle (0.8cm);
 
 
-% Central dotted edge
+% Central dotted edge and dash
 \draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (-0.21,0) -- (0.21,0);
-\draw[line width=1pt] (0,0) -- (0,-0.15);
+\draw[line width=0.75pt] (0,0) -- (0,-0.15);
 
 % Four thinner connecting edges
 \draw[line width=1pt, -Stealth]
@@ -583,6 +544,33 @@
 
 \end{tikzpicture}
 }
+\newcommand{\UnorientedHorizontalThinEdge}[4]{
+	\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
+		
+		% Dotted circle
+		\draw[dotted,thick] (0,0) circle (0.8cm);
+		
+		
+		% Central dotted edge and dash
+		\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (-0.21,0) -- (0.21,0);
+		\draw[line width=0.75pt] (0,0) -- (0,-0.15);
+		
+		% Four thinner connecting edges
+		\draw[line width=1pt, -Stealth]
+		(-0.5,-0.65) .. controls (-0.15,-0.3) and (-0.15,0.3) .. (-0.5,0.65); % left
+		\draw[line width=1pt, Stealth-]
+		(0.5,-0.65) .. controls (0.15,-0.3) and (0.15,0.3) .. (0.5,0.65);   %  right
+		
+		
+		% Labels for regions
+		\node at (0,0.4) {$#1$};
+		\node at (-0.5,0) {$#2$};
+		\node at (0,-0.4) {$#3$};
+		\node at (0.5,0) {$#4$};
+		
+		
+	\end{tikzpicture}
+}
 
 \newcommand{\UnorientedVerticalThinEdgeStandard}{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
@@ -590,9 +578,9 @@
 % Dotted circle 
 \draw[dotted,thick] (0,0) circle (0.8cm);
 
-% Central dotted edge 
+% Central dotted edge and dash
 \draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (0,-0.21) -- (0,0.21);
-\draw[line width=1pt] (0,0) -- (0.15,0);
+\draw[line width=0.75pt] (0,0) -- (0.15,0);
 
 % Four thinner connecting edges 
 \draw[line width=1pt, -Stealth]
@@ -609,8 +597,31 @@
 
 \end{tikzpicture}
 }
-
-
+\newcommand{\UnorientedVerticalThinEdge}[4]{
+	\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
+		
+		% Dotted circle 
+		\draw[dotted,thick] (0,0) circle (0.8cm);
+		
+		% Central dotted edge and dash 
+		\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (0,-0.21) -- (0,0.21);
+		\draw[line width=0.75pt] (0,0) -- (0.15,0);
+		
+		% Four thinner connecting edges 
+		\draw[line width=1pt, -Stealth]
+		(-0.65,-0.5) .. controls (-0.3,-0.15) and (0.3,-0.15) .. (0.65,-0.5); % bottom
+		\draw[line width=1pt, Stealth-]
+		(-0.65,0.5) .. controls (-0.3,0.15) and (0.3,0.15) .. (0.65,0.5);% top
+		
+		
+		% Labels for regions 
+		\node at (0.4,0) {$#4$}; %right
+		\node at (0,-0.5) {$#3$}; %bottom
+		\node at (-0.4,0) {$#2$}; %left
+		\node at (0,0.5) {$#1$}; %top
+		
+	\end{tikzpicture}
+}
 
 \newcommand{\ThinRThickLThickRStandard}[1]{
 \begin{tikzpicture}[thick,baseline=(current bounding box.center)]
@@ -659,7 +670,6 @@
 \node at (0.3,0.65) {$x_5$}; 
 \end{tikzpicture}
 }
-
 
 \newcommand{\ThickLThickRStandard}{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 
@@ -736,3 +746,189 @@
 \end{tikzpicture}
 
 }
+
+
+
+
+\newcommand{\ThinThinUnorientedStandard}[1]{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
+% Dotted circle
+\draw[dotted,thick] (0,0) circle (1cm);
+
+% Thin edges (coordinates swapped)
+\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (0.25,0) -- (0.5,0);
+\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (-0.25,0) -- (-0.5,0);
+
+%thinner connecting edges
+\draw[line width=1pt, Stealth-]
+(0.8,-0.6) .. controls (0.4,-0.2) and (0.4,0.2)  .. (0.8,0.6);   % left
+\draw[line width=1pt, -Stealth]
+(-0.8,-0.6) .. controls (-0.4,-0.2) and (-0.4,0.2)  .. (-0.8,0.6);   % lower right
+
+\draw[line width=1pt]
+(0,0) circle (0.26cm);   % small circle at center
+
+% Labels for regions (coordinates swapped)
+\node at (0,0) {$#1$};
+\node at (0.75,0) {$x_3$}; %right
+\node at (0,-0.6) {$x_2$}; %down
+\node at (-0.75,0) {$x_1$}; %left
+\node at (0,0.6) {$x_0$}; %up
+
+		
+\end{tikzpicture}}
+\newcommand{\ThinThinUnoriented}[5]{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
+		% Dotted circle
+		\draw[dotted,thick] (0,0) circle (1cm);
+		
+		% Thin edges (coordinates swapped)
+		\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (0.25,0) -- (0.5,0);
+		\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (-0.25,0) -- (-0.5,0);
+		
+		%thinner connecting edges
+		\draw[line width=1pt, Stealth-]
+		(0.8,-0.6) .. controls (0.4,-0.2) and (0.4,0.2)  .. (0.8,0.6);   % left
+		\draw[line width=1pt, -Stealth]
+		(-0.8,-0.6) .. controls (-0.4,-0.2) and (-0.4,0.2)  .. (-0.8,0.6);   % lower right
+		
+		\draw[line width=1pt]
+		(0,0) circle (0.26cm);   % small circle at center
+		
+		% Labels for regions (coordinates swapped)
+		\node at (0,0) {$#1$};
+		\node at (0.75,0) {$#5$}; %right
+		\node at (0,-0.6) {$#4$}; %down
+		\node at (-0.75,0) {$#3$}; %left
+		\node at (0,0.6) {$#2$}; %up
+		
+		
+\end{tikzpicture}}
+
+\newcommand{\ThickThinUnoriented}[5]{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
+		
+		
+% Dotted circle
+\draw[dotted,thick] (0,0) circle (1cm);
+
+% Thin edge and thick edge
+\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (0.25,0) -- (0.5,0);
+\draw[line width=2.5pt] (-0.33,-0.15) -- (-0.33,0.15);
+
+%thinner connecting edges
+\draw[line width=1pt, Stealth-]
+(0.8,-0.6) .. controls (0.4,-0.2) and (0.4,0.2)  .. (0.8,0.6);   % left
+\draw[line width=1pt, smooth, -Stealth, tension=0.8]
+plot coordinates {
+(-0.8,-0.6)
+	(-0.4,0.-0.15)
+	(0,-0.26)
+(0.25,0) 
+(0,0.26)
+	(-0.4,0.15)
+(-0.8,0.6)
+};
+
+
+% Labels for regions (coordinates swapped)
+\node at (0,0) {$#1$};
+\node at (0.75,0) {$#5$}; %right
+\node at (0,-0.6) {$#4$}; %down
+\node at (-0.75,0) {$#3$}; %left
+\node at (0,0.6) {$#2$}; %up
+		
+\end{tikzpicture}}
+\newcommand{\ThickThinUnorientedStandard}[1]{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
+		
+		
+		% Dotted circle
+		\draw[dotted,thick] (0,0) circle (1cm);
+		
+		% Thin edge and thick edge
+		\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (0.25,0) -- (0.5,0);
+		\draw[line width=2.5pt] (-0.33,-0.15) -- (-0.33,0.15);
+		
+		%thinner connecting edges
+		\draw[line width=1pt, Stealth-]
+		(0.8,-0.6) .. controls (0.4,-0.2) and (0.4,0.2)  .. (0.8,0.6);   % left
+		\draw[line width=1pt, smooth, -Stealth, tension=0.8]
+		plot coordinates {
+			(-0.8,-0.6)
+			(-0.4,0.-0.15)
+			(0,-0.26)
+			(0.25,0) 
+			(0,0.26)
+			(-0.4,0.15)
+			(-0.8,0.6)
+		};
+		
+		
+		% Labels for regions (coordinates swapped)
+		\node at (0,0) {$#1$};
+		\node at (0.75,0) {$x_3$}; %right
+		\node at (0,-0.6) {$x_2$}; %down
+		\node at (-0.75,0) {$x_1$}; %left
+		\node at (0,0.6) {$x_0$}; %up
+		
+\end{tikzpicture}}
+
+\newcommand{\ThinThickUnorientedStandard}[1]{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
+		% Dotted circle
+		\draw[dotted,thick] (0,0) circle (1cm);
+		
+		% Thin edge and thick edge
+		\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (-0.25,0) -- (-0.5,0);
+		\draw[line width=2.5pt] (0.33,-0.15) -- (0.33,0.15);
+		
+		%thinner connecting edges
+		\draw[line width=1pt, -Stealth]
+		(-0.8,-0.6) .. controls (-0.4,-0.2) and (-0.4,0.2)  .. (-0.8,0.6);   % left
+		\draw[line width=1pt, smooth, Stealth-, tension=0.8]
+		plot coordinates {
+			(0.8,-0.6)
+			(0.4,0.-0.15)
+			(0,-0.26)
+			(-0.25,0) 
+			(0,0.26)
+			(0.4,0.15)
+			(0.8,0.6)
+		};
+		
+		
+		% Labels for regions (coordinates swapped)
+		\node at (0,0) {$#1$};
+		\node at (0.75,0) {$x_3$}; %right
+		\node at (0,-0.6) {$x_2$}; %down
+		\node at (-0.75,0) {$x_1$}; %left
+		\node at (0,0.6) {$x_0$}; %up
+		
+\end{tikzpicture}}
+\newcommand{\ThinThickUnoriented}[5]{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
+		% Dotted circle
+		\draw[dotted,thick] (0,0) circle (1cm);
+		
+		% Thin edge and thick edge
+		\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (-0.25,0) -- (-0.5,0);
+		\draw[line width=2.5pt] (0.33,-0.15) -- (0.33,0.15);
+		
+		%thinner connecting edges
+		\draw[line width=1pt, -Stealth]
+		(-0.8,-0.6) .. controls (-0.4,-0.2) and (-0.4,0.2)  .. (-0.8,0.6);   % left
+		\draw[line width=1pt, smooth, Stealth-, tension=0.8]
+		plot coordinates {
+			(0.8,-0.6)
+			(0.4,0.-0.15)
+			(0,-0.26)
+			(-0.25,0) 
+			(0,0.26)
+			(0.4,0.15)
+			(0.8,0.6)
+		};
+		
+		
+		% Labels for regions (coordinates swapped)
+		\node at (0,0) {$#1$};
+		\node at (0.75,0) {$#5$}; %right
+		\node at (0,-0.6) {$#4$}; %down
+		\node at (-0.75,0) {$#3$}; %left
+		\node at (0,0.6) {$#2$}; %up
+		
+\end{tikzpicture}}
