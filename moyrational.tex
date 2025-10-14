@@ -1,0 +1,72 @@
+
+\subsection{MOY moves for rational $\sl_n$}
+The following explicit instances of the lemma should be thought of as refinements of MOY moves.
+
+Circle removal:\\
+
+    \begin{minipage}[c]{0.5\textwidth}
+        \begin{align*}
+            R &= \Q[\G, x_0-x_1] \\
+            M &= R[x_3-x_0] \\
+            \overline{W} &= 0 \\
+            (n+1)(x_3-x_0)^n-p &= (2x_0-x_1-x_3)Z \\
+            q &= 0
+        \end{align*}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.45\textwidth}
+        \[\begin{tikzcd}[column sep=3cm]
+            \bigoplus_{i=0}^{n-1}R\ar[dd, shift right=0.6ex, swap]\ar[dd, leftarrow, shift left=0.6ex]&\\\\
+            R[x_3-x_0]\arrow[r, "0", shift left=0.5ex, bend left=15]& R[x_3-x_0]\ar[l, "H"]\ar[l, "(2x_0-x_1-x_3)Z", shift left=0.5ex, bend left=15]
+        \end{tikzcd}\]
+    \end{minipage}
+
+    \vspace{1cm} % Adds some vertical space between the items
+Loop removal:\\
+
+    \begin{minipage}[c]{0.5\textwidth}
+        \begin{align*}
+            R&= \Q[\G, x_0-x_1] \\
+            M &= R[x_3-x_0]\\
+            \overline{W} &= 0 \\
+            (n+1)(x_3-x_0)^{n-1}-p &= Z \\
+            q &= 0
+        \end{align*}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.45\textwidth}
+        \[\begin{tikzcd}[column sep=3cm]
+            &\bigoplus_{i=0}^{n-2}R\ar[dd, shift right=0.6ex, swap]\ar[dd, leftarrow, shift left=0.6ex]\\\\
+            R[x_3-x_0]\arrow[r, "Z", shift left=0.5ex, bend left=15]& R[x_3-x_0]\ar[l, "H"]\ar[l, "0", shift left=0.5ex, bend left=15]
+        \end{tikzcd}\]
+    \end{minipage}
+
+Digon removal:\\
+        \begin{align*}
+            R&= \Q[\G, x_0-x_1,x_2-x_1,x_3-x_2] \\
+            M &= K(Z(x_0-x_1,x-x_1,x_3-x),(x_0-x)(x_0+x-x_1-x_3))_{R[x-x_1]}\\
+            \tilde M &= K(Z(x_0-x_1,x_2-x_1,x_3-x_2),(x_0-x_2)(x_0+x_2-x_1-x_3))_{R}\\
+            \overline{W} &= P(x_0-x_1)+P(x_3-x_0)-P(x_2-x_1)-P(x_3-x_2) \\
+            (x-x_1)^{2}-p &=  (x-x_2)(x+x_2-x_1-x_3)\\
+            q &= Z(x-x_1,x_2-x_1,x_3-x_2)
+        \end{align*}
+       $$\begin{tikzcd}[column sep=3cm]
+        \tilde M\oplus \tilde M\ar[dd, shift right=0.6ex, swap]\ar[dd, leftarrow, shift left=0.6ex]&\\\\
+            M\ar[r, "{Z(x-x_1, x_2-x_1,x_3-x_2)}", shift left=0.5ex, bend left=15]& M\ar[l, "H"]\ar[l, "(x-x_2)(x+x_2-x_1-x_3)", shift left=0.5ex, bend left=15]
+        \end{tikzcd}$$
+
+Square removal:
+        \begin{align*}
+            R&= \Q[\G, x_0-x_1,x_2-x_1,x_2-x_3] \\
+            M &= K(Z(x_0-x_1,x_2-x_1,x-x_2),(x_0-x_2)(x_0+x_2-x_1-x))_{R[x-x_0]}\\
+            M_0 &= K()_{R}\\
+            M_1 &= K()_{R}\\
+            \overline{W} &= P(x_0-x_1)-P(x_0-x_3)-P(x_2-x_1)+P(x_2-x_3) \\
+            (n+1)(x-x_0)^{n-1}-p &=  Z(x_2-x_3,x_0-x_3,x-x_0)\\
+            q &= (x_2-x_0)(x_2+x_0-x_3-x)
+        \end{align*}
+       $$\begin{tikzcd}[column sep=3cm]
+        &M_0\oplus \bigoplus_{i=0}^{n-3} M_1\ar[dd, shift right=0.6ex, swap]\ar[dd, leftarrow, shift left=0.6ex]\\\\
+            M\ar[r, "{Z(x_2-x_3,x_0-x_3,x-x_0)}", shift left=0.5ex, bend left=15]& M\ar[l, "H"]\ar[l, "(x_2-x_0)(x_2+x_0-x_3-x)", shift left=0.5ex, bend left=15]
+        \end{tikzcd}$$
+
