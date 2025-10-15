@@ -70,3 +70,22 @@ Square removal:
             M\ar[r, "{Z(x_2-x_3,x_0-x_3,x-x_0)}", shift left=0.5ex, bend left=15]& M\ar[l, "H"]\ar[l, "(x_2-x_0)(x_2+x_0-x_3-x)", shift left=0.5ex, bend left=15]
         \end{tikzcd}$$
 
+For the first Reidemeister move, we start with the following multifactorization over the ring $R=\Q[x_0-x_1]$:
+$$\begin{tikzcd}[column sep=large, ]
+	R[x_3-x_0]\ar[ddr, out=-60, in=120]&R[x_3-x_0] \ar[l,"(2x_0-x_1-x_3)Z", bend right=10, swap]\arrow[ddl, out=-120, in=60] \\\\
+	R[x_3-x_0]\ar[r,"Z", bend right=10, swap]&R[x_3-x_0],
+\end{tikzcd}$$
+where $Z=Z(x_0-x_1,x_0-x_1,x_3-x_0)$
+Here the cubical filtration degree increases downwards. We can apply Lemma \ref{SummandLemma} to obtain a special 0-deformation retract into a multifactorization
+$\bigoplus_{i=0}^{n-1} R \to \bigoplus_{i=0}^{n-2}R$, with the differential described by a matrix
+$$\left(\begin{array}{cccc} 1  &&&a_1\\&\ddots&&\vdots \\&&1&a_{n-1}
+\end{array}\right)$$
+where, up to rescaling, the $a_i$ appear as coefficients of lower order terms in $Z$ with respect to the variable $x_3-x_0$. The differential increases filtration degree 1, so the contractible summand $\bigoplus_{i=0}^{n-2} R \xrightarrow{1} \bigoplus_{i=0}^{n-2}R$ can be cancelled out by a 1-nulhomotopy. After this, we are left with a single copy of $R$.
+
+
+A similar argument applies to reduce
+$$\begin{tikzcd}[column sep=large, ]
+	R[x_3-x_0]\ar[ddr, out=-60, in=120]\ar[r,"Z", bend left=10]&R[x_3-x_0] \arrow[ddl, out=-120, in=60] \\\\
+	R[x_3-x_0]&R[x_3-x_0]\ar[l,"(2x_0-x_1-x_3)Z", bend left=10],
+\end{tikzcd}$$
+into $R$ by a special 1-deformation retract.

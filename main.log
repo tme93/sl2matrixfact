@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.13)  14 OCT 2025 16:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.13)  15 OCT 2025 16:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -690,24 +690,24 @@ File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -768,21 +768,21 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 95.
+loading the todonotes package. on input line 96.
 
-Package hyperref Info: Link coloring ON on input line 95.
+Package hyperref Info: Link coloring ON on input line 96.
 (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 99.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 100
+.
 
 (/home/gomez/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 99.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 100
+.
 
 (/home/gomez/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -792,18 +792,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/home/gomez/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 205.
+ine 206.
 
 
 LaTeX Warning: Marginpar on page 2 moved.
 
 
-Overfull \hbox (1.51335pt too wide) in paragraph at lines 258--258
+Overfull \hbox (1.51335pt too wide) in paragraph at lines 245--245
 \OT1/cmr/m/n/10 symmetry 
  []
 
 
-Overfull \hbox (1.51335pt too wide) in paragraph at lines 258--258
+Overfull \hbox (1.51335pt too wide) in paragraph at lines 245--245
 \OT1/cmr/m/n/10 symmetry 
  []
 
@@ -813,8 +813,13 @@ LaTeX Warning: Marginpar on page 2 moved.
 
 
 [2]
-Overfull \hbox (33.1033pt too wide) detected at line 381
-[] [][]
+Overfull \hbox (39.84677pt too wide) in paragraph at lines 288--288
+\OT1/cmr/m/n/10 multifactorizations 
+ []
+
+
+Overfull \hbox (39.84677pt too wide) in paragraph at lines 288--288
+\OT1/cmr/m/n/10 multifactorizations 
  []
 
 
@@ -822,138 +827,110 @@ Overfull \hbox (33.1033pt too wide) detected at line 381
 [3]
 
 [4]
-Overfull \hbox (2.14456pt too wide) in paragraph at lines 506--507
-[]\OT1/cmr/m/n/10 The next lemma tells us how to simplify certain Koszul matrix
- factorizations into special deformation
+Overfull \hbox (33.1033pt too wide) detected at line 474
+[] [][]
  []
 
 
 
 [5]
-Overfull \hbox (4.76334pt too wide) in paragraph at lines 519--519
+
+[6]
+Overfull \hbox (2.14456pt too wide) in paragraph at lines 596--597
+[]\OT1/cmr/m/n/10 The next lemma tells us how to simplify certain Koszul matrix
+ factorizations into special deformation
+ []
+
+
+Overfull \hbox (4.76334pt too wide) in paragraph at lines 609--609
 \OT1/cmr/m/n/10 convention 
  []
 
 
-Overfull \hbox (4.76334pt too wide) in paragraph at lines 519--519
+Overfull \hbox (4.76334pt too wide) in paragraph at lines 609--609
 \OT1/cmr/m/n/10 convention 
  []
 
 
-Overfull \hbox (12.2634pt too wide) in paragraph at lines 524--524
+Overfull \hbox (12.2634pt too wide) in paragraph at lines 614--614
 \OT1/cmr/m/n/10 modification 
  []
 
 
-Overfull \hbox (12.2634pt too wide) in paragraph at lines 524--524
+Overfull \hbox (12.2634pt too wide) in paragraph at lines 614--614
 \OT1/cmr/m/n/10 modification 
  []
 
 
-LaTeX Warning: Marginpar on page 6 moved.
-
-
-
-[6] (moyrational.tex
-
-LaTeX Font Warning: Command \sl invalid in math mode on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--26
-
- []
+LaTeX Warning: Marginpar on page 7 moved.
 
 
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-
- []
-
-)
-
-LaTeX Font Warning: Command \sl invalid in math mode on input line 668.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 668.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 668.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 668.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 668.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 668.
-
-
 
 [8]
 
+LaTeX Font Warning: Command \sl invalid in math mode on input line 758.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 758.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 758.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 758.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 758.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 758.
+
+
+
 [9]
-Overfull \hbox (9.76335pt too wide) in paragraph at lines 729--729
-\OT1/cmr/m/n/10 accidentally 
- []
-
-
-Overfull \hbox (1.73557pt too wide) in paragraph at lines 729--729
-\OT1/cmr/m/n/10 horizontal 
- []
-
-
-Overfull \hbox (9.76335pt too wide) in paragraph at lines 729--729
-\OT1/cmr/m/n/10 accidentally 
- []
-
-
-Overfull \hbox (1.73557pt too wide) in paragraph at lines 729--729
-\OT1/cmr/m/n/10 horizontal 
- []
-
-
 
 [10]
+Overfull \hbox (9.76335pt too wide) in paragraph at lines 854--854
+\OT1/cmr/m/n/10 accidentally 
+ []
 
-[11]
 
-[12] (main.aux)
+Overfull \hbox (1.73557pt too wide) in paragraph at lines 854--854
+\OT1/cmr/m/n/10 horizontal 
+ []
+
+
+Overfull \hbox (9.76335pt too wide) in paragraph at lines 854--854
+\OT1/cmr/m/n/10 accidentally 
+ []
+
+
+Overfull \hbox (1.73557pt too wide) in paragraph at lines 854--854
+\OT1/cmr/m/n/10 horizontal 
+ []
+
+
+
+[11] (main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 95D2D467F3E7D61DD85B64153EF409E9;1719.
+(rerunfilecheck)             Checksum: 1EE215F4A0EBA4CB14419A2342FDA1B0;1845.
  ) 
 Here is how much of TeX's memory you used:
- 25787 strings out of 470067
- 501472 string characters out of 5482652
- 1014627 words of memory out of 5000000
- 53718 multiletter control sequences out of 15000+600000
+ 25560 strings out of 470067
+ 495681 string characters out of 5482652
+ 987764 words of memory out of 5000000
+ 53492 multiletter control sequences out of 15000+600000
  640274 words of font info for 90 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  99i,23n,101p,760b,1681s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -967,26 +944,25 @@ b></home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 ></home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
 </home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
 home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></ho
-me/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home
-/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb></home/g
-omez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/gom
-ez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/gomez
-/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/gomez/.
-miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb></home/gomez/.mik
-tex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/gomez/.miktex
-/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/gomez/.miktex/te
-xmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/gomez/.miktex/texmf
-s/install/fonts/type1/public/amsfonts/cm/cmss10.pfb></home/gomez/.miktex/texmfs
-/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/gomez/.miktex/texmfs/
-install/fonts/type1/public/amsfonts/cm/cmsy5.pfb></home/gomez/.miktex/texmfs/in
-stall/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/gomez/.miktex/texmfs/inst
-all/fonts/type1/public/amsfonts/cm/cmti10.pfb></home/gomez/.miktex/texmfs/insta
-ll/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/gomez/.miktex/texmfs/i
-nstall/fonts/type1/public/amsfonts/symbols/msbm5.pfb></home/gomez/.miktex/texmf
-s/install/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (12 pages, 388481 bytes).
+me/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb></home
+/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/g
+omez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/gom
+ez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/gomez
+/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb></home/gomez/.m
+iktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/gomez/.mikt
+ex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/gomez/.miktex/
+texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/gomez/.miktex/tex
+mfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb></home/gomez/.miktex/texm
+fs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/gomez/.miktex/texmf
+s/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb></home/gomez/.miktex/texmfs/
+install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/gomez/.miktex/texmfs/in
+stall/fonts/type1/public/amsfonts/cm/cmti10.pfb></home/gomez/.miktex/texmfs/ins
+tall/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/gomez/.miktex/texmfs
+/install/fonts/type1/public/amsfonts/symbols/msbm5.pfb></home/gomez/.miktex/tex
+mfs/install/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on main.pdf (11 pages, 372776 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
+ 269 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
