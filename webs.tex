@@ -544,7 +544,7 @@
 
 \end{tikzpicture}
 }
-\newcommand{\UnorientedHorizontalThinEdge}[4]{
+\newcommand{\UnorientedHorizontalThinEdge}[5]{
 	\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 		
 		% Dotted circle
@@ -553,7 +553,7 @@
 		
 		% Central dotted edge and dash
 		\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (-0.21,0) -- (0.21,0);
-		\draw[line width=0.75pt] (0,0) -- (0,-0.15);
+		\draw[line width=0.75pt] (0,0) -- (0,#5 0.15);
 		
 		% Four thinner connecting edges
 		\draw[line width=1pt, -Stealth]
@@ -597,7 +597,7 @@
 
 \end{tikzpicture}
 }
-\newcommand{\UnorientedVerticalThinEdge}[4]{
+\newcommand{\UnorientedVerticalThinEdge}[5]{
 	\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
 		
 		% Dotted circle 
@@ -605,7 +605,7 @@
 		
 		% Central dotted edge and dash 
 		\draw[dotted, dash pattern=on 1pt off 1pt, line width=0.5pt] (0,-0.21) -- (0,0.21);
-		\draw[line width=0.75pt] (0,0) -- (0.15,0);
+		\draw[line width=0.75pt] (0,0) -- (#5 0.15,0);
 		
 		% Four thinner connecting edges 
 		\draw[line width=1pt, -Stealth]
@@ -706,7 +706,6 @@
 \node at (0.65,-0.25) {$x_4$};
 \node at (0.25,0.5) {$x_5$}; 
 \end{tikzpicture}
-
 }
 
 \newcommand{\ThickLThickR}[6]{\begin{tikzpicture}[thick,baseline=(current bounding box.center)]
@@ -744,7 +743,6 @@
 \node at (0.65,-0.25) {$#5$};
 \node at (0.25,0.5) {$#6$}; 
 \end{tikzpicture}
-
 }
 
 
