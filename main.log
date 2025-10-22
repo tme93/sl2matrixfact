@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.13)  17 OCT 2025 15:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.13)  22 OCT 2025 16:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -690,24 +690,24 @@ File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -768,54 +768,42 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 107.
+loading the todonotes package. on input line 125.
 
-Package hyperref Info: Link coloring ON on input line 107.
+Package hyperref Info: Link coloring ON on input line 125.
 (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 111
+LaTeX Font Info:    Trying to load font information for U+msa on input line 129
 .
 
 (/home/gomez/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 111
+LaTeX Font Info:    Trying to load font information for U+msb on input line 129
 .
 
 (/home/gomez/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 207.
-
-Overfull \hbox (4.51338pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 formatting[]  
- []
-
-
-Overfull \hbox (4.51338pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 formatting[]  
- []
-
-
-LaTeX Warning: Marginpar on page 1 moved.
-
-
-LaTeX Font Warning: Command \sl invalid in math mode on input line 226.
-
-
 
 [1
 
 {/home/gomez/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (1.51335pt too wide) in paragraph at lines 261--261
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 268.
+
+
+LaTeX Font Warning: Command \sl invalid in math mode on input line 274.
+
+
+Overfull \hbox (1.51335pt too wide) in paragraph at lines 309--309
 \OT1/cmr/m/n/10 symmetry 
  []
 
 
-Overfull \hbox (1.51335pt too wide) in paragraph at lines 261--261
+Overfull \hbox (1.51335pt too wide) in paragraph at lines 309--309
 \OT1/cmr/m/n/10 symmetry 
  []
 
@@ -826,151 +814,114 @@ Overfull \hbox (1.51335pt too wide) in paragraph at lines 261--261
 [3]
 
 [4]
-Overfull \hbox (29.31898pt too wide) in paragraph at lines 494--494
-\OT1/cmr/m/n/10 postcomposition 
- []
-
-
-Overfull \hbox (29.31898pt too wide) in paragraph at lines 494--494
-\OT1/cmr/m/n/10 postcomposition 
+Overfull \hbox (54.72717pt too wide) detected at line 533
+[]
  []
 
 
 
 [5]
-Overfull \hbox (0.82973pt too wide) in paragraph at lines 588--590
-\OT1/cmr/m/n/10 we are under the hypotheses of the simplification lemma [][]3.3
-[][]. In particular, we have a strong deformation
+Overfull \hbox (8.80623pt too wide) detected at line 628
+[]
  []
 
 
 
 [6]
-Overfull \hbox (9.76335pt too wide) in paragraph at lines 642--642
-\OT1/cmr/m/n/10 accidentally 
- []
-
-
-Overfull \hbox (1.73557pt too wide) in paragraph at lines 642--642
-\OT1/cmr/m/n/10 horizontal 
- []
-
-
-Overfull \hbox (9.76335pt too wide) in paragraph at lines 642--642
-\OT1/cmr/m/n/10 accidentally 
- []
-
-
-Overfull \hbox (1.73557pt too wide) in paragraph at lines 642--642
-\OT1/cmr/m/n/10 horizontal 
- []
-
-
-Overfull \hbox (15.7835pt too wide) in paragraph at lines 645--646
-\OT1/cmr/m/n/10 These are the only moves that don't directly follow from the si
-mplification lemmas for Koszul factorizations. 
- []
-
-
-Overfull \hbox (6.7911pt too wide) in paragraph at lines 650--650
-\OT1/cmr/m/n/10 interesting. 
- []
-
-
-Overfull \hbox (4.76334pt too wide) in paragraph at lines 650--650
-\OT1/cmr/m/n/10 convention 
- []
-
-
-Overfull \hbox (10.98558pt too wide) in paragraph at lines 650--650
-\OT1/cmr/m/n/10 adjustments[]  
- []
-
-
-Overfull \hbox (6.7911pt too wide) in paragraph at lines 650--650
-\OT1/cmr/m/n/10 interesting. 
- []
-
-
-Overfull \hbox (4.76334pt too wide) in paragraph at lines 650--650
-\OT1/cmr/m/n/10 convention 
- []
-
-
-Overfull \hbox (10.98558pt too wide) in paragraph at lines 650--650
-\OT1/cmr/m/n/10 adjustments[]  
- []
-
-
-LaTeX Warning: Marginpar on page 7 moved.
-
-
-Overfull \hbox (39.84677pt too wide) in paragraph at lines 684--684
-\OT1/cmr/m/n/10 multifactorizations 
- []
-
-
-Overfull \hbox (39.84677pt too wide) in paragraph at lines 684--684
-\OT1/cmr/m/n/10 multifactorizations 
- []
-
-
 
 [7]
 
 [8]
-Overfull \hbox (33.1033pt too wide) detected at line 870
-[] [][]
+Overfull \hbox (9.76335pt too wide) in paragraph at lines 883--883
+\OT1/cmr/m/n/10 accidentally 
  []
+
+
+Overfull \hbox (1.73557pt too wide) in paragraph at lines 883--883
+\OT1/cmr/m/n/10 horizontal 
+ []
+
+
+Overfull \hbox (9.76335pt too wide) in paragraph at lines 883--883
+\OT1/cmr/m/n/10 accidentally 
+ []
+
+
+Overfull \hbox (1.73557pt too wide) in paragraph at lines 883--883
+\OT1/cmr/m/n/10 horizontal 
+ []
+
+
+Overfull \hbox (39.84677pt too wide) in paragraph at lines 921--921
+\OT1/cmr/m/n/10 multifactorizations 
+ []
+
+
+Overfull \hbox (39.84677pt too wide) in paragraph at lines 921--921
+\OT1/cmr/m/n/10 multifactorizations 
+ []
+
+
+LaTeX Warning: Marginpar on page 9 moved.
 
 
 
 [9]
 
 [10]
+Overfull \hbox (33.1033pt too wide) detected at line 1107
+[] [][]
+ []
 
-[11] (main.aux)
+
+
+[11]
+
+[12]
+
+[13] (main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 84653710A8A56629FB90C4D0D1CEFF03;1885.
+(rerunfilecheck)             Checksum: 53FA9687CF06A1FCD65A97D6D447C297;1546.
  ) 
 Here is how much of TeX's memory you used:
- 25586 strings out of 470067
- 496498 string characters out of 5482652
- 1039078 words of memory out of 5000000
- 53522 multiletter control sequences out of 15000+600000
+ 25728 strings out of 470067
+ 500031 string characters out of 5482652
+ 1068911 words of memory out of 5000000
+ 53658 multiletter control sequences out of 15000+600000
  637841 words of font info for 82 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 99i,23n,101p,760b,1710s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,23n,101p,760b,1711s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/gomez/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000
 .pk></home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.p
 fb></home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b></home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx9.pfb>
-</home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cmextra/cmex7.pf
-b></home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb><
-/home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></h
-ome/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb></hom
-e/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/
-gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/go
-mez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/gome
-z/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb></home/gomez/.
-miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/gomez/.mik
-tex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/gomez/.miktex
-/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/gomez/.miktex/
-texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb></home/gomez/.miktex/te
-xmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/gomez/.miktex/texm
-fs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></home/gomez/.miktex/texmf
-s/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/gomez/.miktex/t
-exmfs/install/fonts/type1/public/amsfonts/symbols/msbm5.pfb></home/gomez/.mikte
-x/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (11 pages, 347049 bytes).
+b></home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx7.pfb>
+</home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
+home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></h
+ome/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cmextra/cmex7.pfb>
+</home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/home/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></h
+ome/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></hom
+e/gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb></home/
+gomez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/go
+mez/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/gome
+z/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/gomez/
+.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb></home/gomez/.mi
+ktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/gomez/.mikte
+x/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/gomez/.miktex/t
+exmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/gomez/.miktex/te
+xmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb></home/gomez/.miktex/texm
+fs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/gomez/.miktex/texmfs
+/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></home/gomez/.miktex/texmfs/
+install/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/gomez/.miktex/tex
+mfs/install/fonts/type1/public/amsfonts/symbols/msbm5.pfb></home/gomez/.miktex/
+texmfs/install/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on main.pdf (13 pages, 367047 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
- 43 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 272 PDF objects out of 1000 (max. 8388607)
+ 49 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 

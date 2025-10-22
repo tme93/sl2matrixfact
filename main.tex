@@ -41,9 +41,19 @@
 %special deformation retracts
 \newcommand{\sdr}[5]{%
   \begin{tikzcd}[column sep=large, ampersand replacement=\&]
-    {#1} \arrow[r, "#3", shift left=0.5ex,] \arrow[r, leftarrow, "#4", shift right=0.5ex, swap] \& 
-    {#2} \arrow[loop right, distance=1em, in=15, out=-15, "#5",swap]
+    {#1} \arrow[r, "{#3}", shift left=0.5ex,] \arrow[r, leftarrow, "{#4}", shift right=0.5ex, swap] \& 
+    #2 \arrow[loop right, distance=1em, in=15, out=-15, "{#5}",swap]
   \end{tikzcd}%
+}
+
+%violet special deformation retracts
+\newcommand{\vsdr}[5]{%
+	\begin{tikzcd}[column sep=large, ampersand replacement=\&]
+		{#1} 
+		\arrow[r, "{#3}", shift left=0.5ex, color=violet] 
+		\arrow[r, leftarrow, "{#4}", shift right=0.5ex, swap, color=violet] 
+		\& #2 \arrow[loop right, distance=1em, in=15, out=-15, "{#5}",swap, color=violet]
+	\end{tikzcd}%
 }
 
 %matrix factorizations with long arrows
@@ -67,6 +77,14 @@
 	K_{#1}{\begin{pmatrix}
 			#2
 		\end{pmatrix}
+	}	
+}
+
+%Koszul matrix factorizations as subscripts
+\newcommand{\skmf}[2]{
+	K_{#1}{\left(\begin{smallmatrix}
+			#2
+		\end{smallmatrix}\right)
 	}	
 }
 
@@ -174,16 +192,12 @@ with $A,A',B$ and $B'$ concentrated in $\hslash$-degree 0, we often specify morp
 \end{tikzcd}
 =
 \begin{tikzcd}
-    {}  [\:A \arrow[dr, "\alpha"{pos=1}, out=-45, in=120]\arrow[r, out=5, in=175, bend left=10]  &  \hslash B\:]\arrow[dl, "\beta"{pos=1}, out=-135, in=60,swap] \arrow[l, out=185, in=-5, swap]\\
-     {} [\:A' \arrow[r, out=5, in=175, bend left=10]& 
-     \hslash B' \arrow[l, out=185, in=-5, swap]\:]
+    {}  [\:\hslash A \arrow[dr, "\alpha"{pos=1}, out=-45, in=120]\arrow[r, out=5, in=175, bend left=10]  &   B\:]\arrow[dl, "\beta"{pos=1}, out=-135, in=60,swap] \arrow[l, out=185, in=-5, swap]\\
+     {} [\:\hslash A' \arrow[r, out=5, in=175, bend left=10]& 
+     B' \arrow[l, out=185, in=-5, swap]\:]
 \end{tikzcd}
 \]
-Many useful maps can be easily expressed in this notation. For instance, the differential $d_M:M\to M$ itself takes the form
-$$
-d_m=\hslash^1 (d_1,d_0)
-$$
-In the case $M'=\hslash M$, we will often use the map
+Many useful maps can be easily expressed in this notation. In the case $M'=\hslash M$, we will often use the map
 $$
 s_\hslash =\hslash^1(1,1):M\to \hslash M
 .
@@ -193,20 +207,39 @@ For Koszul matrix factorizations, we will take the convention
 $$
 	\kmf{R}{a & b }
 	=
-	\mfshort{q^{\deg_q(a)+3} \hslash  R}{R}{a}{b}
-	.
+	\left[\mfshort{q^{\deg_q(a)+3} \hslash  R}{R}{a}{b}\right]
+	,
 $$
+so that the differential can be written as
+$$
+d_{\skmf{R}{a & b }}=\hslash^1 (a,b)
+$$
+More generally, given sequences $\mathbf{\overline a}=(a_1,\dots,a_r)$ and  $ \mathbf{\overline b}=(b_1,\dots,b_r)$, we have an associated Koszul factorization
 
-Here, the grading $\hslash$ is a $\Z/2$ grading. A shift $\hbar M$ on a matrix factorization $M$ has the additional effect of switching the sign of all differentials. This helps us keep track of Koszul sign rules for tensor products of matrix factorizations. Namely, if we tensor a Koszul factorization $K_{R}\begin{pmatrix} a & b \end{pmatrix}$ with some other matrix factorization $M$, we can write
 $$
-	\kmf{R}{a & b } 
+	\kmf{R}{\mathbf{\overline a} & \mathbf{\overline b} }
+	=
+	\bigotimes_i \kmf{R}{a_i & b_i }		
+$$
+with differential
+$$
+	d_{\skmf{R}{\mathbf{\overline a} & \mathbf{\overline b} }}
+	=
+	\sum_{i=1}^r \hslash^1(a_i,b_i)_i
+	,
+$$
+where $\hslash^1(a_i,b_i)_i=1\otimes\cdots\otimes\hslash^1(a_i,b_i)\otimes\cdots\otimes 1$. 
+
+A shift $\hbar M$ on a matrix factorization $M$ has the additional effect of switching the sign of all differentials. This helps us keep track of Koszul sign rules for tensor products of matrix factorizations. Namely, if we tensor a Koszul factorization $K_{R}\begin{pmatrix} a & b \end{pmatrix}$ with some other matrix factorization $M$, we can write
+$$
+	\kmf{R}{a & b }\otimes_R M
 	=
 	\left[ \mfshort{q^{\deg_q(a)+3}\hslash M}{M}{a}{b} \right]
 	.
 $$
-This indicates that the tensor product splits, as free $R$-module, into two shifted copies of $M$. In terms of this decomposition, the total differential takes the form\todo{Koszul m.f. looks bad as a subindex. fix formatting}
+This indicates that the tensor product splits as a free $R$-module into two copies of $M$, the first one with shifted $q$ and $\hslash$ degrees. In terms of this decomposition, the total differential takes the form 
 $$
-	d_{\kmf{R}{a & b } \otimes M}  
+	d_{\skmf{R}{a & b } \otimes M}  
 	=
 	\begin{pmatrix}
 	   	-d_M & b 
@@ -215,7 +248,22 @@ $$
 	\end{pmatrix}
 	,
 $$
-where the negative sign comes precisely from the $\hslash$-shift. Observe also that here $a$ and $b$ are understood to have $\hslash$-degree 1, and they could be more explicitly denoted by $\hslash^1(a,a)$ and $\hslash^1(b,b)$, respectively.
+where the negative sign comes precisely from the $\hslash$-shift. 
+Here are some useful isomorphisms
+\[
+	\begin{tikzcd}[ampersand replacement=\&, column sep=3cm]
+		\kmf{R}{\mathbf{\overline a} & \mathbf{\overline b} }  
+		\ar[r, "{\id+\lambda \hslash^1(1,0)_i\hslash^1(1,0)_j}"]
+		\&
+		\kmf{R}{\mathbf{\overline a}+\lambda b_i\mathbf{\overline e}_j-\lambda b_j\mathbf{\overline e}_i &  \mathbf{\overline b} }
+		\\
+		\kmf{R}{\mathbf{\overline a} & \mathbf{\overline b} }  
+		\ar[r, "{??}"]
+		\&
+		\kmf{R}{\mathbf{\overline a}+\lambda a_i\mathbf{\overline e}_j &  \mathbf{\overline b}-\lambda b_j\mathbf{\overline e}_i }
+		\\
+	\end{tikzcd}
+\]
 
 If we want to switch the sign of differentials in $M$ without altering the $\hslash$ degree, we write $-M$. Using these notations, we have \todo{not sure if I need this}
 \begin{align*}
@@ -265,11 +313,12 @@ The elementary matrix factorizations can be also written in terms of Koszul fact
 \begin{align*}
 	\maf(D_0)
 	&
-	=K_R {\begin{pmatrix}
-				x_0-x_2 &(x_0+x_2-x_1-x_3)((x_3-x_1)-H)
-		\end{pmatrix}}
-	,	
+	=\kmf{R}{x_0-x_2 &(x_0+x_2-x_1-x_3)((x_3-x_1)-H)}
 	\\
+	&
+	=q \hslash \kmf{R}{(x_0+x_2-x_1-x_3)(H-(x_3-x_1)) & x_2-x_0}
+	,	
+	\\[0.2cm]
 	\maf(D_1)    
 	&
 	= q\kmf{R}{(x_0+x_2-x_1-x_3)(x_0-x_2)& (x_3-x_1)-H)}	
@@ -279,7 +328,7 @@ The elementary matrix factorizations can be also written in terms of Koszul fact
 	.
 \end{align*}
 
-Notice that $R$ is the subring of the polynomial ring in all face variables generated by differences across edges. We refer to $R$ as the \emph{edge ring}, and we extend this nomenclature to more general webs in the expected way. The particular case $R=\mathbf K[x_0-x_1,x_2-x_1,x_3-x_2]$ is refered to as the \emph{standard edge ring}. We will often omit the specification of the edge ring when face variables are already indicated in the web diagram.
+Notice that $R$ is the subring of the polynomial ring in all face variables generated by differences across edges. We refer to $R$ as the \emph{edge ring}. If we are only considering differences across boundary-adjacent edges, we call $R$ the \emph{boundary ring}. We extend this nomenclature to more general webs in the expected way. Note that the boundary ring is a subring of the edge ring, and they coincide if and only if there are no interior faces. The particular case $R=\mathbf K[x_0-x_1,x_2-x_1,x_3-x_2]$ is refered to as the \emph{standard boundary ring}. We will often omit the specification of the edge or boundary ring when face variables are already indicated in the web diagram.
 
 Now, given a general connected web $\Gamma$ on the disk, in which we allow any of the local pictures $D_i$ to appear, we can define the associated matrix factorization
 $$
@@ -288,7 +337,34 @@ $$
 over the corresponding edge ring $R_\Gamma$. The tensor product runs over all thin and thick edges of $\Gamma$ and depends, in principle, on an ordering of these edges. However, the operation is symmetric monoidal, which gives canonical isomorphisms between different choices of thin/thick edge orderings.
 
 \section{Web simplifications}
-The next lemma tells us how to simplify certain Koszul matrix factorizations into special deformation retracts.
+
+In this section, we explain how to express matrix factorizations associated to webs in terms of simpler webs. 
+
+\begin{example}\label{tripleedge}
+As a first example, let's consider the following local picture
+\todo{triple edgepic}
+\begin{align*}
+	&
+	=
+	q\kmf{R[u-x_1]}{H-(x_4-x_0) & (x_5+u-x_4-x_0)(u-x_5) \\
+		(u-x_1)-H & (x_0+x_2-u-x_1)(x_0-x_2) \\ 	
+		(u+x_3-x_4-x_2)(u-x_3)& (x_4-x_2)-H 
+	}
+	\\
+	&
+	\cong
+	q\kmf{R[u-x_1]}{(u-x_1)-H & (x_0+x_2-u-x_1)(x_0-x_2) \\ 
+		H-(x_4-x_0) & (x_5+u-x_4-x_0)(u-x_5) \\	
+		(u+x_3-x_4-x_2)(u-x_3)& (x_4-x_2)-H 
+	}:=N
+	.
+\end{align*}
+Here we are taking the convention of numbering the thick edges top to bottom. Swapping rows gives an isomorphic matrix factorization $N$, which could have also been obtained by a different ordering of the thick edges, but we want to emphasize the fact that we will keep track of these isomorphisms in situations sensitive to the choice order.
+
+Let $R$ be the boundary ring. The matrix factorization $N$ is, in principle, a matrix factorization over the larger edge ring $R[u-x_1]$.  However, the potential lives in $R$, i.e. all the terms involving $u$ cancel out. This means that one can restrict the base ring to $R$ and simply think of $N$ as a matrix factorization over $R$, albeit one of infinite rank. 
+
+The following lemma gives us a recipe to obtain a finite rank special deformation retract of $N$ as a matrix factorization over $R$ by eliminating the first row and taking a quotient with respect to one of its terms.
+\end{example}
 
 \begin{lemma}\label{sdrlemma}    (Adapted from KR \textcolor{red}{How general is $R$?}) Let $R$ be an integral domain and $y$ a variable in quantum degree $q^{-2}$. Let $\overline W\in R$ and $f,g\in R[y]$ so that $f$ has the form $f=uy^n+\tilde f$ wtih $u\in R^\times$ and $\deg_y(\tilde f)<n$. Let $M$ be a matrix factorization over $R[y]$ with potential $W=\overline W-fg\in R[y]$. Let 
 \begin{align*}
@@ -325,7 +401,7 @@ $$
 		\arrow[l, "g", shift left=1ex, bend left=20, start anchor=west, end anchor=east], 
 	\end{tikzcd}
 $$
-	\todo{next in order: change the koszul grading here}
+
 	The arrows are as follows:
 	\begin{itemize}
 		\item $P$ is the usual projection.
@@ -410,7 +486,55 @@ $$
 \end{proof}
 
 
-In many cases of interest, we additionally have a decomposition $M/fM=\bigoplus_{i=0}^{k}M_i$ as matrix factorizations over $R$. Such an identification, together with the preceding lemma, will often produce a special deformation retract that simplifies $M$ into a sum of simpler matrix factorizations over a ring involving one less variable. Observe that there is always a decomposition of free graded $R$-modules $M/fM=\bigoplus_{i=0}^{\deg{f}-1}y^i M/yM$, but it might not be a decomposition of matrix factorizations. The following lemmas describe specific situations where it is.
+\begin{example}
+	Let us return to example \ref{tripleedge} and apply the lemma. In this case, we have $y=u-x_1$, $f=(u-x_1)-H$ and
+	\begin{align*}
+		M
+		&
+		=
+		q\kmf{R[u-x_1]}{H-(x_4-x_0) & (x_5+u-x_4-x_0)(u-x_5) \\		
+			(u+x_3-x_4-x_2)(u-x_3)& (x_4-x_2)-H 
+		}
+		,
+	\end{align*}
+so that 
+	\begin{align*}
+	M/fM
+	&
+	=
+	q\kmf{R}{H-(x_4-x_0) & (x_5+x_1+H-x_4-x_0)(x_1+H-x_5) \\	
+		(x_1+H+x_3-x_4-x_2)(x_1+H-x_3)& (x_4-x_2)-H 
+	}
+	,
+\end{align*}
+is a special deformation retract of $N=\overline M=\kmf{R[u-x_1]}{f & g}\otimes_{R[u-x_1]}M$. 
+
+Now that we have a smaller factorization $M/fM$ over a smaller ring $R$, we would like to identify it as the matrix factorization associated to a smaller web. We can do this by a couple of elementary operations.
+	\begin{align*}
+	M/fM
+	&
+	=
+	q\kmf{R}{H-(x_4-x_0) & (x_5+x_1+H-x_4-x_0)(x_1+H-x_5) \\	
+		(x_1+H+x_3-x_4-x_2)(x_1+H-x_3)& (x_4-x_2)-H 
+	}
+	\\
+	&
+	\cong
+		q\kmf{R}{x_0-x_2 & (x_5+x_1+H-x_4-x_0)(x_1+H-x_5) \\	
+		(x_0-x_2)(x_1+H-x_5)+(x_5-x_3)(x_5+x_3-x_4-x_2)& (x_4-x_2)-H 
+	}
+	\\
+		&
+	\cong
+	q\kmf{R}{x_0-x_2 & (x_5+x_1-x_2-x_0)(x_1+H-x_5) \\	
+	(x_5-x_3)(x_5+x_3-x_4-x_2)& (x_4-x_2)-H 
+	}
+	\\
+\end{align*}
+\todo{pic of simplified web}
+\end{example}
+
+In our running example, we simplified a Koszul matrix factorization by killing a linear polynomial. This procedure will be applied often, so we record it as a more general lemma. 
 
 
 \begin{lemma}\label{lemma:sdrkoszullinear} \emph{(Simplification of Koszul factorizations by a linear term)}
@@ -425,7 +549,7 @@ In many cases of interest, we additionally have a decomposition $M/fM=\bigoplus_
 		\kmf{R}{\left.\mathbf{\overline a}\right|_{y=f_0} & \left.\mathbf{\overline b}\right|_{y=f_0}}
 		\ar[dd, shift right=0.6ex, "1", swap]
 		\ar[dd, leftarrow, shift left=0.6ex, "y\mapsto f_0"]
-		\arrow[ddl, "{}", bend right=20, swap]
+		\arrow[ddl, "{I_v}", bend right=20, swap]
 		\\\\
 		q\hslash\kmf{R[y]}{\mathbf{\overline a} & \mathbf{\overline b}}
 		\arrow[r, "f", shift left=0.5ex, bend left=20]
@@ -451,7 +575,19 @@ In many cases of interest, we additionally have a decomposition $M/fM=\bigoplus_
 \end{lemma}
 
 
-\begin{lemma}\label{lemma:sdrkoszul}\emph{(Simplification of Koszul factorizations by a higher order polynomial)}\todo{that final degree switch in $\hslash$}
+
+In other cases of interest, we have a decomposition into several summands $M/fM=\bigoplus_{i=0}^{k}M_i$ as matrix factorizations over $R$, where $M_i$ are simpler factorizations of a desirable form. The following lemma, a higher order generalization of \ref{lemma:sdrkoszullinear}, gives such decompositions in favorable cases.
+
+In the following, we introduce the shorthand
+$$
+P_{f(y)}^i
+= 
+\left.\frac{\partial^i}{\partial y^i}\right|_{y=0}\circ\Res_f,
+$$
+which is more succintly described as the map that takes the coefficient of $y^i$ after taking the residue of division by $f(y)$. 
+
+
+\begin{lemma}\label{lemma:sdrkoszul}\emph{(Simplification of Koszul factorizations by a higher order polynomial)}
 	In the set up of Lemma \ref{sdrlemma}, assume that $M=\kmf{R[y]}{\mathbf{\overline a} &\mathbf{\overline b}}$ and that $\deg_y(\Res_f(a_i))=\deg_y(\Res_f(b_i))=0$ for all $i$. Then the map
 	$$
 		\displaystyle\bigoplus_{i=0}^{n-1}q^{-2i}\kmf{R}{\Res_f\mathbf{\overline a} & \Res_f\mathbf{\overline b}} 
@@ -464,7 +600,7 @@ In many cases of interest, we additionally have a decomposition $M/fM=\bigoplus_
 			&
 			\displaystyle\bigoplus_{i=0}^{n-1}q^{-2i} \kmf{R}{\Res_f\mathbf{\overline a} & \Res_f\mathbf{\overline b}} 
 			\ar[dd, shift right=0.6ex, "(y^i)_i", swap]
-			\ar[dd, leftarrow, shift left=0.6ex, "\left(\frac{1}{i!}\left.\frac{\partial^i}{\partial y^i}\right|_{y=0}\circ 	\Res_f\right)_i"]
+			\ar[dd, leftarrow, shift left=0.6ex, "\left(P^i_{f(y)}\right)_i"]
 			\arrow[ddl, "{}", bend right=20, swap]
 			\\
 			\\
@@ -479,38 +615,40 @@ In many cases of interest, we additionally have a decomposition $M/fM=\bigoplus_
 	$$
 	The diagonal component of the inclusion is the composite
 	$$
-	\begin{tikzcd}[column sep=7cm]
-		\displaystyle\bigoplus_{i=0}^{n-1}q^{-2i}\hslash\kmf{R}{\Res_f\mathbf{\overline a} & \Res_f\mathbf{\overline b}} 
-		\arrow[d,"s_\hslash"] 
-		&
-		\\
+	\begin{tikzcd}[column sep=5.5cm]
 		\displaystyle\bigoplus_{i=0}^{n-1}q^{-2i}\kmf{R}{\Res_f\mathbf{\overline a} & \Res_f\mathbf{\overline b}} 
-		\arrow[r, "{\left(\sum_{j=1}^k1\otimes\cdots \otimes\hslash^1(\Quo_f\circ y^i a_j,\Quo_f\circ y^i b_j)\otimes\cdots\otimes 1\right)_i}"] 
+		\arrow[r, "{\left(\sum_{j=1}^k1\otimes\cdots \otimes\hslash^1(-\Quo_f\circ y^i a_j,-\Quo_f\circ y^i b_j)\otimes\cdots\otimes 1\right)_i}"] 
 		& 
-		q^{3-2n}K_{R[y]}\left(\mathbf{\overline a},\mathbf{\overline b}\right) 
+		q^{3-2n}K_{R[y]}\left(\mathbf{\overline a},\mathbf{\overline b}\right)
+		\arrow[d,"s_\hslash"] 
+		\\
+		&
+		\displaystyle\bigoplus_{i=0}^{n-1}q^{-2i}\hslash\kmf{R}{\Res_f\mathbf{\overline a} & \Res_f\mathbf{\overline b}} 
 	\end{tikzcd}
 	$$
 \end{lemma}
-\todo{maybe I want postcomposition with $s_\hslash$}
+
+
+
 \subsection{Thin edge removal}
 Simplification by linear polynomials \ref{lemma:sdrkoszullinear} can be directly applied to remove thin edges that bound an interior region.
 \begin{proposition}
 	Let $D$ be a four-ended web with a thin edge $e$ such that its negative region is interior. Denote the corresponding edge ring by $R_D$, and the variables associated to the positive and negative region of $e$ by $x_+$ and $x_-$, respectively. Let $D'$ be the web obtained by removal of $e$, so that its edge ring $R_{D'}$ no longer involves $x_-$. Then there is a special deformation retract of matrix factorizations over $R_{D'}$
-	$$\sdr{\hslash M(D')}{M(D)}{}{}{}$$ 
+	$$\sdr{M(D')}{M(D)}{}{}{}$$ 
 	of the form
 	$$
 	\begin{tikzcd}[column sep=large]
 		&
-		\hslash M(D')
+		M(D')
 		\ar[dd, shift right=0.6ex, "1", swap]
 		\ar[dd, leftarrow, shift left=0.6ex, "x_-\mapsto x_+"]
-		\arrow[ddl, "{\left(\sum_{j}1\otimes\cdots \otimes\hslash^1(\Quo_f\circ a_j,\Quo_f\circ b_j)\otimes\cdots\otimes 1\right)\circ s_\hslash}", bend right=20, swap]
+		\arrow[ddl, "{\left(\sum_{j}1\otimes\cdots \otimes\hslash^1(-\Quo_f\circ a_j,-\Quo_f\circ b_j)\otimes\cdots\otimes 1\right)\circ s_\hslash}", bend right=20, swap]
 		\\
 		\\
-		q \widetilde M(D)
+		q \hslash \widetilde M(D)
 		\arrow[r, "f=x_+-x_-", shift left=0.5ex, bend left=20]
 		& 
-		\hslash \widetilde M(D)
+		 \widetilde M(D)
 		\ar[l, "K"]
 		\arrow[l, "g", shift left=0.5ex, bend left=20]
 		, 
@@ -522,10 +660,10 @@ Simplification by linear polynomials \ref{lemma:sdrkoszullinear} can be directly
 A similar statement is true if the positive region is interior and the variable $x_+$ is eliminated instead.
 
 \begin{example}
-	In the proof of the Reidemeister 3 move we will need a special deformation retract
+	In the proof of the Reidemeister 3 move we will need special deformation retracts of the form
 	\[
 	\begin{tikzcd}[column sep=large, ampersand replacement=\&]
-		{\hslash \scalebox{0.7}{\ThickLThickRStandard}} 
+		{\scalebox{0.7}{\ThickLThickRStandard}} 
 		\arrow[r, shift left=0.5ex, color=violet] 
 		\arrow[r, leftarrow, shift right=0.5ex, swap, color=violet] 
 		\& 
@@ -533,7 +671,7 @@ A similar statement is true if the positive region is interior and the variable 
 		\arrow[loop right, distance=1em, in=15, out=-15, ,swap, color=violet]
 	\end{tikzcd}
 	\]
-	removing the thin edge that separates $x_+=x_5$ from $x_-=u$. According to the expression above, the retraction map will involve the calculation of $\Quo_{x_5-u}$ applied to the various components of
+	removing the thin edge that separates $x_+=x_5$ from $x_-=u$. According to the expression above, the retraction map will involve the evaluation of $-\Quo_{x_5-u}$ at the various components of
 	\begin{align*}
 		{\ThickLThickR{x_0}{x_1}{x_2}{x_3}{x_4}{u}} [x_5-u]
 		& = q^2 K_{R[x_5-u]}
@@ -548,28 +686,131 @@ A similar statement is true if the positive region is interior and the variable 
 		\end{pmatrix}.
 	\end{align*}
 	The result is
+\todo{signs need double check here}
 	\[
 	\begin{tikzcd}[column sep=large]
 		&
-		\hslash \scalebox{0.7}{\ThickLThickRStandard} 
+		\scalebox{0.7}{\ThickLThickRStandard} 
 		\ar[dd, shift right=0.6ex, "1", swap, color=violet]
 		\ar[dd, leftarrow, shift left=0.6ex, "u\mapsto x_5", color=violet]
-		\arrow[ddl, "{\left(\hslash^1(x_0-x_2,-1)\otimes 1+1\otimes\hslash^1(x_2+x_4-u-x_5,0)\right)\circ s_\hslash}", bend right=20, swap, color=violet]
+		\ar[ddl, "{s_\hslash\circ\left(\hslash^1(x_0-x_2,-1)\otimes 1+1\otimes\hslash^1(x_2+x_4-u-x_5,0)\right)}", bend right=20, swap, color=violet]
 		\\
 		\\
-		q \scalebox{0.7}{\ThickLThickR{x_0}{x_1}{x_2}{x_3}{x_4}{u}}[x_5-u]
-		\arrow[r, "f=x_5-u", shift left=0.5ex, bend left=20]
+		q \hslash  \scalebox{0.7}{\ThickLThickR{x_0}{x_1}{x_2}{x_3}{x_4}{u}}[x_5-u]
+		\arrow[r, "f=x_5-u", shift left=5ex, bend left=20, start anchor=east, end anchor=west]
 		& 
-		\hslash \scalebox{0.7}{\ThickLThickR{x_0}{x_1}{x_2}{x_3}{x_4}{u}}[x_5-u]
+		\scalebox{0.7}{\ThickLThickR{x_0}{x_1}{x_2}{x_3}{x_4}{u}}[x_5-u]
 		\ar[l, "-\Quo_f", color=violet]
-		\arrow[l, "(x_5+u-x_0-x_4)((x_4-x_0)-H)", shift left=0.5ex, bend left=20]
+		\ar[l, "(x_5+u-x_0-x_4)((x_4-x_0)-H)", shift left=5ex, bend left=20, start anchor=west, end anchor=east]
 	\end{tikzcd}_.
 	\]
 \end{example}
 
 
-\subsection{Circle, bigon and square removal}
-In the case of bigon removal, we have
+
+\subsection{Circle removal (delooping)}
+The usual delooping consists of removing the circle in the local picture
+\[
+	\ThinEdgeAndCircle{x_0}{x_1}{x_3}
+	=
+	q \hslash \kmf{R[x_0-x_3]}{(2x_0-x_1-x_3)(H-(x_3-x_1)) & 0}
+	,
+\]
+where the boundary ring is $R=\mathbf{K}[x_0-x_1]$. By simplifying with respect to the polynomial $f(y)=(2x_0-x_1-x_3)((x_3-x_1)-H)$ thought of as quadratic in the variable $y=x_0-x_3$, we are left with the special deformation retract
+\begin{equation}\label{eq:sdrloop}
+	\vsdr{q\hslash \scalebox{0.7}{\SingleEdge{}{}}\oplus q^{-1}\hslash \scalebox{0.7}{\SingleEdge{}{}}}
+	{[3cm] \ThinEdgeAndCircle{x_0}{x_1}{x_3}}
+	{\begin{pmatrix}
+			\hslash^0(1,0) & \hslash^0(x_0-x_3,0)
+		\end{pmatrix}}
+	{\begin{pmatrix} \hslash^0(P^0_{f(y)},0) \\
+			\hslash^0(P^1_{f(y)},0) \end{pmatrix}}
+	{\hslash^1(-\Quo_{f},0)}
+\end{equation}
+
+There is also a version of delooping for thick edges
+\[
+\ThickEdgeAndCircle{x_0}{x_1}{x_3}
+=
+\hslash \kmf{R[x_0-x_3]}{H-(x_3-x_1) & 0}
+.
+\]
+We simplify with respect to $f(y)=H-(x_3-x_1)$ which is linear in $y=x_0-x_3$, to get a special deformation retract
+\begin{equation}\label{eq:sdrthickloop}
+	\vsdr{\hslash \scalebox{0.7}{\SingleEdge{}{}}}
+	{[1cm] \ThickEdgeAndCircle{x_0}{x_1}{x_3}}
+	{\hslash^0(1,0)}
+	{ \hslash^0(P^0_{f(y)},0)}
+	{\hslash^1(-\Quo_{f},0)}
+\end{equation}
+
+
+Loops may appear in more complicated ways, and there are different ways to deal with them. The following two situations appear in Reidemeister II move, where $R$ is back to being the standard boundary ring. First, we have
+\[
+	\ThinThinUnoriented{u}{x_0}{x_1}{x_2}{x_3}
+	=
+	q^2 \kmf{R[u-x_1]}{(x_0+x_2-x_1-u)((u-x_1)-H) & x_0-x_2 \\							
+								(x_2+x_0-u-x_3)(H-(u-x_3)) & x_0-x_2 }
+	.
+\]
+It is possible to reduce this case to (\ref{eq:sdrloop}), but we opt for the direct approach of simplifying with respect to the polynomial $f(y)=(x_0+x_2-x_1-u)((u-x_1)-H)$, thought of as quadratic in the variable $y=u-x_1$, to obtain a special deformation retract
+\begin{equation}\label{eq:sdrthinthin}
+	\vsdr{q \hslash \scalebox{0.8}{\UnorientedHorizontalThinEdge{x_0}{x_1}{x_2}{x_3}{+}} \oplus q^{-1} \hslash 				\scalebox{0.7}{\UnorientedHorizontalThinEdge{x_0}{x_1}{x_2}{x_3}{+}}}
+	{\scalebox{0.7}{\ThinThinUnoriented{u}{x_0}{x_1}{x_2}{x_3}}}
+	{}{}{}
+\end{equation}	
+given by
+\[
+\begin{tikzcd}[column sep=4cm, row sep=2cm, ampersand replacement=\&]
+	q \hslash \scalebox{0.7}{\UnorientedHorizontalThinEdge{x_0}{x_1}{x_2}{x_3}{+}} \oplus q^{-1} \hslash \scalebox{0.7}{\UnorientedHorizontalThinEdge{x_0}{x_1}{x_2}{x_3}{+}} 
+	\arrow[d, shift right=2, "{\begin{pmatrix}\hslash^0(1,0) & \hslash^0(u-x_1,0) \end{pmatrix}}", swap, color=violet] 
+	\arrow[dr, bend left=20, color=violet] 
+	\&
+	\\   
+	q\hslash \scalebox{0.7}{\ThinEdge{x_2}{x_3}{x_0}{u}}[u-x_1] 
+	\arrow[r, "x_0-x_2", bend left=5]
+	\arrow[u, shift right=2, "{\begin{pmatrix} \hslash^0(P^0_{f(y)},0) \\ \hslash^0(P^1_{f(y)},0) \end{pmatrix}}",swap, color=violet]
+	\& 
+	\scalebox{0.7}{\ThinEdge{x_2}{x_3}{x_0}{u}}[u-x_1] 
+	\arrow[l, "f=(x_0+x_2-x_1-u)((u-x_1)-H)", bend left=5] 
+	.
+\end{tikzcd}
+\]
+
+Similarly, we also have 
+\[
+\ThickThinUnoriented{u}{x_0}{x_1}{x_2}{x_3}
+=
+\hslash \kmf{R[u-x_1]}{H-(u-x_1) & (x_0+x_2-x_1-u)(x_2-x_0) \\							
+	x_2-x_0 & (x_2+x_0-u-x_3)((u-x_3)-H) }
+,
+\]
+which we simplify with respect to the linear polynomial $f(y)=(u-x_1)-H$ in the variable $y=u-x_1$ to obtain 
+\begin{equation}\label{eq:sdrthickthin}
+		\vsdr{\hslash \scalebox{0.7}{\UnorientedHorizontalThinEdge{x_0}{x_1}{x_2}{x_3}{+}}}
+{\scalebox{0.7}{\ThickThinUnoriented{u}{x_0}{x_1}{x_2}{x_3}}}
+{}{}{}
+\end{equation}
+given by
+\[
+\begin{tikzcd}[column sep=4cm, row sep=2cm, ampersand replacement=\&]
+	\&
+	\hslash \scalebox{0.7}{\UnorientedHorizontalThinEdge{x_0}{x_1}{x_2}{x_3}{+}} 
+	\arrow[d, shift right=2, "{\hslash^0(1,0)}", swap, color=violet] 
+	\arrow[dl, bend right=20, color=violet] 
+	\\   
+	q  \scalebox{0.7}{\ThinEdge{x_2}{x_3}{x_0}{u}}[u-x_1] 
+	\arrow[r, "f=(u-x_1)-H", bend left=5]
+	\& 
+	\hslash	\scalebox{0.7}{\ThinEdge{x_2}{x_3}{x_0}{u}}[u-x_1] 
+	\arrow[l, "(x_0+x_2-x_1-u)(x_0-x_2)", bend left=5]
+	\arrow[u, shift right=2, "{\hslash^0(P^0_{f(y)},0)}",swap, color=violet]	
+\end{tikzcd}
+\]
+
+
+\subsection{Bigon and square removal}
+The local picture
 \begin{align*}
 	\BigonStandard{u} &= q^2K_{R[u-x_0]}
 	\begin{pmatrix}
@@ -577,7 +818,7 @@ In the case of bigon removal, we have
 		(u+x_2-x_1-x_3)(u-x_2) & (x_3-x_1)-H
 	\end{pmatrix}
 \end{align*}
-Letting $y=u-x_0$, $f=(x_0+u-x_1-x_3)(x_0-u)$ and 
+is known as a \emph{bigon}. Letting $y=u-x_0$, $f=(x_0+u-x_1-x_3)(x_0-u)$ and 
 $$
 M
 =
@@ -586,15 +827,15 @@ q^2\kmf{R[u-x_0]}{(u+x_2-x_1-x_3)(u-x_2) & (x_3-x_1)-H}
 q\scalebox{0.7}{\ThickEdge{u}{x_1}{x_2}{x_3}}[u-x_0] 
 ,
 $$ 
-we are under the hypotheses of the simplification lemma \ref{lemma:sdrkoszul}. In particular, we have a strong deformation retract
+we are under the hypotheses of the higher order simplification lemma \ref{lemma:sdrkoszul}. In particular, we have a strong deformation retract
 \[
 \begin{tikzcd}[column sep=3cm, row sep=2cm]
-	q\hslash \scalebox{0.7}{\ThickEdgeStandard}\oplus q^{-1}\hslash \scalebox{0.7}{\ThickEdgeStandard} 
+	q \scalebox{0.7}{\ThickEdgeStandard}\oplus q^{-1} \scalebox{0.7}{\ThickEdgeStandard} 
 	\arrow[d, shift right=2, "{\begin{pmatrix} \hslash^0(1,1) \quad \hslash^0(u-x_0,u-x_0)\end{pmatrix}}", swap] 
 	\arrow[dr, bend left=20, "{\begin{pmatrix} \hslash^0(-1,0) \quad \hslash^0(x_0-u,0)\end{pmatrix}}"] 
 	&
 	\\   
-	q\hslash \scalebox{0.7}{\ThickEdge{u}{x_1}{x_2}{x_3}}[u-x_0] 
+	q \scalebox{0.7}{\ThickEdge{u}{x_1}{x_2}{x_3}}[u-x_0] 
 	\arrow[u, shift right=2, "{\begin{pmatrix} \hslash^0\left (P^0_{f(y)}, P^0_{f(y)}\right)
 			\\    
 			\hslash^0\left(P^1_{f(y)}, P^1_{f(y)}\right)
@@ -602,7 +843,7 @@ we are under the hypotheses of the simplification lemma \ref{lemma:sdrkoszul}. I
 	, swap]
 	\arrow[r, "(x_3-x_1)-H", bend left=5]
 	& 
-	\scalebox{0.7}{\ThickEdge{u}{x_1}{x_2}{x_3}}[u-x_0] 
+	\hslash \scalebox{0.7}{\ThickEdge{u}{x_1}{x_2}{x_3}}[u-x_0] 
 	\arrow[l, "f=(x_0+u-x_1-x_3)(x_0-u)", bend left=5]
 \end{tikzcd}
 \]\todo{these maps still need some checking, esp. the diagonal}
@@ -628,41 +869,37 @@ we are under the hypotheses of the linear simplification lemma \ref{lemma:sdrkos
 \[
 \begin{tikzcd}[column sep=3cm, row sep=2cm]
 	&
-	\hslash \scalebox{0.7}{\UnorientedVerticalThinEdge{x_0}{x_1}{x_2}{x_3}{-}} 
+	\scalebox{0.7}{\UnorientedVerticalThinEdge{x_0}{x_1}{x_2}{x_3}{-}} 
 	\arrow[d, shift right=2, "{\hslash^0(1,1)}", swap] 
 	\arrow[dl, bend right=20, "{\hslash^0(1,x_0-x_2)}",swap] 
 	\\   
-	q\hslash \scalebox{0.7}{\ThickEdge{x_2}{x_3}{x_0}{u}}[u-x_1] 
+	q \scalebox{0.7}{\ThickEdge{x_2}{x_3}{x_0}{u}}[u-x_1] 
 	\arrow[r, "f=(u-x_1)-H", bend left=5]
 	& 
-	\scalebox{0.7}{\ThickEdge{x_2}{x_3}{x_0}{u}}[u-x_1] 
+	\hslash \scalebox{0.7}{\ThickEdge{x_2}{x_3}{x_0}{u}}[u-x_1] 
 	\arrow[l, "(x_0+x_2-x_1-u)(x_0-x_2)", bend left=5]
 	\arrow[u, shift right=2, "{\hslash^0\left(P^0_{f(y)}, P^0_{f(y)}\right)}",swap]
 \end{tikzcd}
 \]\todo{i accidentally ruined the horizontal arrows in the one below}
 
-\subsection{Triple thick edges}
-These are the only moves that don't directly follow from the simplification lemmas for Koszul factorizations.
 
-
-
-\subsection{Other thin edge removals}
-\todo{not too interesting. they also need a double check after all the convention adjustments}
-\[
-\begin{tikzcd}[column sep=3cm, row sep=1cm]
-	& \hslash\scalebox{0.7}{\ThickEdgeStandard} \arrow[d, shift right=2, "1", swap] \arrow[dl, bend right=20, "{\hslash^0(1,x_2-x_0)}", swap] 
-	\\q\scalebox{0.7}{\ThickEdge{x_0}{x_1}{x_2}{u}}[u-x_3-H] \arrow[r, "H-(u-x_3)", bend left=5]
-	& \hslash\scalebox{0.7}{\ThickEdge{x_0}{x_1}{x_2}{u}}[u-x_3-H] \arrow[l, "(x_2+x_0-x_3-u)(x_0-x_2)", bend left=5]\arrow[u, shift right=2, "{\left.\id\right|_{u=x_3+H}}",swap]
-\end{tikzcd}
-\]
-
-
-\[
-\begin{tikzcd}[column sep=3cm, row sep=1cm]
-	& \scalebox{0.7}{\ThickEdgeStandard} \arrow[d, shift right=2, "1", swap] \arrow[dl, bend right=20, "{\hslash^0(u+x_0-x_1-x_3,0)}", swap] \\
-	q\hslash \scalebox{0.7}{\ThickEdge{u}{x_1}{x_2}{x_3}}[u-x_0] \arrow[r, "H-(u-x_3)", bend left=5]& \scalebox{0.7}{\ThickEdge{u}{x_1}{x_2}{x_3}}[u-x_0] \arrow[l, "(x_2+x_0-u-x_3)(x_2-x_0)", bend left=5]\arrow[u, shift right=2, "{\left.\id\right|_{u=x_0}}",swap]
-\end{tikzcd}
-\]
+%\subsection{Other removals}
+%\todo{not too interesting. they also need a double check after all the convention adjustments}
+%\[
+%\begin{tikzcd}[column sep=3cm, row sep=1cm]
+%	& \hslash\scalebox{0.7}{\ThickEdgeStandard} \arrow[d, shift right=2, "1", swap] \arrow[dl, bend right=20, "{\hslash^0(1,x_2-x_0)}", swap] 
+%	\\q\scalebox{0.7}{\ThickEdge{x_0}{x_1}{x_2}{u}}[u-x_3-H] \arrow[r, "H-(u-x_3)", bend left=5]
+%	& \hslash\scalebox{0.7}{\ThickEdge{x_0}{x_1}{x_2}{u}}[u-x_3-H] \arrow[l, "(x_2+x_0-x_3-u)(x_0-x_2)", bend left=5]\arrow[u, shift right=2, "{\left.\id\right|_{u=x_3+H}}",swap]
+%\end{tikzcd}
+%\]
+%
+%
+%\[
+%\begin{tikzcd}[column sep=3cm, row sep=1cm]
+%	& \scalebox{0.7}{\ThickEdgeStandard} \arrow[d, shift right=2, "1", swap] \arrow[dl, bend right=20, "{\hslash^0(u+x_0-x_1-x_3,0)}", swap] \\
+%	q\hslash \scalebox{0.7}{\ThickEdge{u}{x_1}{x_2}{x_3}}[u-x_0] \arrow[r, "H-(u-x_3)", bend left=5]& \scalebox{0.7}{\ThickEdge{u}{x_1}{x_2}{x_3}}[u-x_0] \arrow[l, "(x_2+x_0-u-x_3)(x_2-x_0)", bend left=5]\arrow[u, shift right=2, "{\left.\id\right|_{u=x_0}}",swap]
+%\end{tikzcd}
+%\]
 
 
 
@@ -835,11 +1072,11 @@ are easily verified to be 1-contractible. The corresponding special 1-deformatio
 		\arrow[d, color=violet, shift right=1.5]
 		\arrow[l, color=ForestGreen, shift left=1]
 		\\
-		q\scalebox{0.7}{\ThinEdgeAndCircle{}{}{}} \arrow[r]
+		q \hslash \scalebox{0.7}{\ThinEdgeAndCircle{}{}{}} \arrow[r]
 		\arrow[u, color=violet, shift right=1.5] 
 		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
 		\&
-		q^2\hslash h\scalebox{0.7}{\ThickEdgeAndCircle{}{}{}} 
+		q^2 h\scalebox{0.7}{\ThickEdgeAndCircle{}{}{}} 
 		\arrow[u, color=violet, shift right=1.5] 
 		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet] 
 	\end{tikzcd} 
@@ -858,12 +1095,12 @@ are easily verified to be 1-contractible. The corresponding special 1-deformatio
 		\arrow[u, color=ForestGreen, shift right=1.5] 
 		\ar[l, color=ForestGreen, shift left=1] 
 		\\
-		q^{-2}\hslash h^{-1}\scalebox{0.7}{\ThickEdgeAndCircle{}{}{}} 
+		q^{-2} h^{-1}\scalebox{0.7}{\ThickEdgeAndCircle{}{}{}} 
 		\ar[r] 
 		\arrow[u, color=violet, shift right=1.5] 
 		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet] 
 		&
-		q^{-1}\scalebox{0.7}{\ThinEdgeAndCircle{}{}{}} 
+		q^{-1}\hslash \scalebox{0.7}{\ThinEdgeAndCircle{}{}{}} 
 		\arrow[u, color=violet, shift right=1.5] 
 		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
 	\end{tikzcd}
@@ -874,117 +1111,125 @@ are easily verified to be 1-contractible. The corresponding special 1-deformatio
 
 The same recipe works for Reidemeister II moves. The special 0-deformation retracts represented by violet arrows still come from L
 
-\[\label{r2asdr}
-\begin{tikzcd}[row sep=-0.1cm, column sep=2cm]
-	&
-	\scalebox{0.7}{\ThinEdge{}{}{}{}}
-	\arrow[d, color=ForestGreen, shift right=1.5]
-	&
-	\\[4em]&
-	\scalebox{0.7}{\ThinEdge{}{}{}{}}
-	\arrow[dr]
-	\arrow[ddd, bend left=40, color=violet, shift right=1.5, dash pattern=on 40pt off 35pt]
-	\arrow[leftarrow, ddd, bend left=40, color=violet, shift left=1.5, dash pattern=on 39.5pt off 37pt]
-	\arrow[u, color=ForestGreen, shift right=1.5]
-	&
-	\\
-	q^{-1}\hslash h^{-1}\scalebox{0.7}{\ThickEdge{}{}{}{}} 
-	\arrow[dr]
-	\arrow[ur]
-	\arrow[ddd, color=violet, shift right=1.5]
-	&
-	&
-	q\hslash h\scalebox{0.7}{\ThickEdge{}{}{}{}}
-	\arrow[ddd, color=violet, shift right=1.5]
-	\\
-	& 
-	q\scalebox{0.7}{\ThickEdge{}{}{}{}}\oplus q^{-1}\scalebox{0.7}{\ThickEdge{}{}{}{}}
-	\arrow[ur, crossing over] 
-	&
-	\\[2em]
-	& 
-	\scalebox{0.7}{\ThinThin{}{}{}{}{}}
-	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
-	\arrow[dr]
-	&
-	\\
-	q^{-1}\hslash h^{-1}\scalebox{0.7}{\ThinThick{}{}{}{}{}} 
-	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
-	\arrow[ur]
-	\arrow[dr]
-	\arrow[uuu, color=violet, shift right=1.5]
-	&& 
-	q\hslash h\scalebox{0.7}{\ThickThin{}{}{}{}{}}
-	\arrow[uuu, color=violet, shift right=1.5]
-	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
-	\\
-	& 
-	\scalebox{0.7}{\Bigon{}{}{}{}{}} 
-	\arrow[ur]
-	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet] 
-	&
-	\arrow[ddd, from=4-2, to=7-2, bend right=40, crossing over, color=violet, shift right=1.5] 
-	\arrow[uuu, from=7-2, to=4-2, bend left=40, crossing over, color=violet, shift right=1.5] 
-	\arrow[ur, from=4-2, to=3-3, crossing over] 
-	\arrow[rr, from=3-1, to=3-3, crossing over] 
-\end{tikzcd}
-\]
+\begin{figure}
+	\centering
+	\[\label{r2asdr}
+	\begin{tikzcd}[row sep=-0.1cm, column sep=2cm]
+		&
+		\scalebox{0.7}{\ThinEdge{}{}{}{}}
+		\arrow[d, color=ForestGreen, shift right=1.5]
+		&
+		\\[4em]&
+		\scalebox{0.7}{\ThinEdge{}{}{}{}}
+		\arrow[dr]
+		\arrow[ddd, bend left=40, color=violet, shift right=1.5, dash pattern=on 40pt off 35pt]
+		\arrow[leftarrow, ddd, bend left=40, color=violet, shift left=1.5, dash pattern=on 39.5pt off 37pt]
+		\arrow[u, color=ForestGreen, shift right=1.5]
+		&
+		\\
+		q^{-1}\hslash h^{-1}\scalebox{0.7}{\ThickEdge{}{}{}{}} 
+		\arrow[dr]
+		\arrow[ur]
+		\arrow[ddd, color=violet, shift right=1.5]
+		&
+		&
+		q\hslash h\scalebox{0.7}{\ThickEdge{}{}{}{}}
+		\arrow[ddd, color=violet, shift right=1.5]
+		\\
+		& 
+		q \scalebox{0.7}{\ThickEdge{}{}{}{}}\oplus q^{-1} \scalebox{0.7}{\ThickEdge{}{}{}{}}
+		\arrow[ur, crossing over] 
+		&
+		\\[2em]
+		& 
+		\scalebox{0.7}{\ThinThin{}{}{}{}{}}
+		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
+		\arrow[dr]
+		&
+		\\
+		q^{-1}\hslash h^{-1}\scalebox{0.7}{\ThinThick{}{}{}{}{}} 
+		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
+		\arrow[ur]
+		\arrow[dr]
+		\arrow[uuu, color=violet, shift right=1.5]
+		&& 
+		q\hslash h\scalebox{0.7}{\ThickThin{}{}{}{}{}}
+		\arrow[uuu, color=violet, shift right=1.5]
+		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
+		\\
+		& 
+		\scalebox{0.7}{\Bigon{}{}{}{}{}} 
+		\arrow[ur]
+		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet] 
+		&
+		\arrow[ddd, from=4-2, to=7-2, bend right=40, crossing over, color=violet, shift right=1.5] 
+		\arrow[uuu, from=7-2, to=4-2, bend left=40, crossing over, color=violet, shift right=1.5] 
+		\arrow[ur, from=4-2, to=3-3, crossing over] 
+		\arrow[rr, from=3-1, to=3-3, crossing over] 
+	\end{tikzcd}
+	\]
+		\caption{Invariance under positive and negative Reidemeister IIa move}
+\end{figure}
 
-\[\label{r2bsdr}
-\begin{tikzcd}[row sep=-0.1cm, column sep=2cm]
-	&
-	\scalebox{0.7}{\UnorientedVerticalThinEdge{}{}{}{}{+}}
-	\arrow[d, color=ForestGreen, shift right=1.5]
-	&
-	\\[4em]&
-	\scalebox{0.7}{\UnorientedVerticalThinEdge{}{}{}{}{+}}
-	\arrow[dr]
-	\arrow[ddd, bend left=40, color=violet, shift right=1.5, dash pattern=on 40pt off 35pt]
-	\arrow[leftarrow, ddd, bend left=40, color=violet, shift left=1.5, dash pattern=on 39.5pt off 37pt]
-	\arrow[u, color=ForestGreen, shift right=1.5]
-	&
-	\\
-	q^{-1}\hslash h^{-1}\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}{-}} 
-	\arrow[dr]
-	\arrow[ur]
-	\arrow[ddd, color=violet, shift right=1.5]
-	&
-	&
-	q\hslash h\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}{-}}
-	\arrow[ddd, color=violet, shift right=1.5]
-	\\
-	& 
-	q\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}{-}}\oplus q^{-1}\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}{-}}
-	\arrow[ur, crossing over] 
-	&
-	\\[2em]
-	& 
-	\scalebox{0.7}{\Square{}{}{}{}{}{}}
-	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
-	\arrow[dr]
-	&
-	\\
-	q^{-1}\hslash h^{-1}\scalebox{0.7}{\ThinThickUnoriented{}{}{}{}{}} 
-	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
-	\arrow[ur]
-	\arrow[dr]
-	\arrow[uuu, color=violet, shift right=1.5]
-	&& 
-	q\hslash h\scalebox{0.7}{\ThickThinUnoriented{}{}{}{}{}}
-	\arrow[uuu, color=violet, shift right=1.5]
-	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
-	\\
-	& 
-	\scalebox{0.7}{\ThinThinUnoriented{}{}{}{}{}} 
-	\arrow[ur]
-	\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet] 
-	&
-	\arrow[ddd, from=4-2, to=7-2, bend right=40, crossing over, color=violet, shift right=1.5] 
-	\arrow[uuu, from=7-2, to=4-2, bend left=40, crossing over, color=violet, shift right=1.5] 
-	\arrow[ur, from=4-2, to=3-3, crossing over] 
-	\arrow[rr, from=3-1, to=3-3, crossing over] 
-\end{tikzcd}
-\]
+\begin{figure}
+	\centering
+	\[\label{r2bsdr}
+	\begin{tikzcd}[row sep=-0.1cm, column sep=2cm]
+		&
+		\scalebox{0.7}{\UnorientedVerticalThinEdge{}{}{}{}{-}}
+		\arrow[d, color=ForestGreen, shift right=1.5]
+		&
+		\\[4em]&
+		\scalebox{0.7}{\UnorientedVerticalThinEdge{}{}{}{}{-}}
+		\arrow[dr]
+		\arrow[ddd, bend left=40, color=violet, shift right=1.5, dash pattern=on 40pt off 35pt]
+		\arrow[leftarrow, ddd, bend left=40, color=violet, shift left=1.5, dash pattern=on 39.5pt off 37pt]
+		\arrow[u, color=ForestGreen, shift right=1.5]
+		&
+		\\
+		q^{-1} h^{-1}\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}{-}} 
+		\arrow[dr]
+		\arrow[ur]
+		\arrow[ddd, color=violet, shift right=1.5]
+		&
+		&
+		q h\scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}{+}}
+		\arrow[ddd, color=violet, shift right=1.5]
+		\\
+		& 
+		q\hslash \scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}{-}}\oplus q^{-1}\hslash \scalebox{0.7}{\UnorientedHorizontalThinEdge{}{}{}{}{-}}
+		\arrow[ur, crossing over] 
+		&
+		\\[2em]
+		& 
+		\scalebox{0.7}{\Square{}{}{}{}{}{}}
+		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
+		\arrow[dr]
+		&
+		\\
+		q^{-1}\hslash h^{-1}\scalebox{0.7}{\ThinThickUnoriented{}{}{}{}{}} 
+		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
+		\arrow[ur]
+		\arrow[dr]
+		\arrow[uuu, color=violet, shift right=1.5]
+		&& 
+		q\hslash h\scalebox{0.7}{\ThickThinUnoriented{}{}{}{}{}}
+		\arrow[uuu, color=violet, shift right=1.5]
+		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet]
+		\\
+		& 
+		\scalebox{0.7}{\ThinThinUnoriented{}{}{}{}{}} 
+		\arrow[ur]
+		\arrow[loop right, distance=1.5em, in=-75, out=-105, color=violet] 
+		&
+		\arrow[ddd, from=4-2, to=7-2, bend right=40, crossing over, color=violet, shift right=1.5] 
+		\arrow[uuu, from=7-2, to=4-2, bend left=40, crossing over, color=violet, shift right=1.5] 
+		\arrow[ur, from=4-2, to=3-3, crossing over] 
+		\arrow[rr, from=3-1, to=3-3, crossing over] 
+	\end{tikzcd}
+	\]
+	\caption{Invariance under Reidemeister IIb move}
+\end{figure}
 
 
 
@@ -1000,13 +1245,6 @@ The same recipe works for Reidemeister II moves. The special 0-deformation retra
 	% \end{tikzcd}$$
 
 %\input{moyrational}
-
-\subsection{Web simplifications}
-
-
-
-
-
 
 
 
