@@ -14,7 +14,10 @@
 \usepackage{todonotes}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz,tikz-cd}
+\usepackage{xparse}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\usetikzlibrary{calc}
 
 
 % Theorem-like environments
@@ -225,10 +228,10 @@ with differential
 $$
 	d_{\skmf{R}{\mathbf{\overline a} & \mathbf{\overline b} }}
 	=
-	\sum_{i=1}^r \hslash^1(a_i,b_i)_i
+	\sum_{i=1}^r \hslash^1_i(a_i,b_i)
 	,
 $$
-where $\hslash^1(a_i,b_i)_i=1\otimes\cdots\otimes\hslash^1(a_i,b_i)\otimes\cdots\otimes 1$. 
+where $\hslash^1_i(a,b)=1\otimes\cdots\otimes\hslash^1(a,b)\otimes\cdots\otimes 1$ is only non-identity in the $i$-th factor.
 
 A shift $\hbar M$ on a matrix factorization $M$ has the additional effect of switching the sign of all differentials. This helps us keep track of Koszul sign rules for tensor products of matrix factorizations. Namely, if we tensor a Koszul factorization $K_{R}\begin{pmatrix} a & b \end{pmatrix}$ with some other matrix factorization $M$, we can write
 $$
@@ -253,14 +256,14 @@ Here are some useful isomorphisms
 \[
 	\begin{tikzcd}[ampersand replacement=\&, column sep=3cm]
 		\kmf{R}{\mathbf{\overline a} & \mathbf{\overline b} }  
-		\ar[r, "{\id+\lambda \hslash^1(1,0)_i\hslash^1(1,0)_j}"]
+		\ar[r, "{\id+\lambda \hslash^1_i(1,0)\hslash^1_j(1,0)}"]
 		\&
 		\kmf{R}{\mathbf{\overline a}+\lambda b_i\mathbf{\overline e}_j-\lambda b_j\mathbf{\overline e}_i &  \mathbf{\overline b} }
 		\\
 		\kmf{R}{\mathbf{\overline a} & \mathbf{\overline b} }  
-		\ar[r, "{??}"]
+		\ar[r, "{\id+\lambda \hslash^1_i(0,1)\hslash^1_j(1,0)}"]
 		\&
-		\kmf{R}{\mathbf{\overline a}+\lambda a_i\mathbf{\overline e}_j &  \mathbf{\overline b}-\lambda b_j\mathbf{\overline e}_i }
+		\kmf{R}{\mathbf{\overline a}-\lambda a_i\mathbf{\overline e}_j &  \mathbf{\overline b}+\lambda b_j\mathbf{\overline e}_i }
 		\\
 	\end{tikzcd}
 \]
@@ -617,7 +620,7 @@ which is more succintly described as the map that takes the coefficient of $y^i$
 	$$
 	\begin{tikzcd}[column sep=5.5cm]
 		\displaystyle\bigoplus_{i=0}^{n-1}q^{-2i}\kmf{R}{\Res_f\mathbf{\overline a} & \Res_f\mathbf{\overline b}} 
-		\arrow[r, "{\left(\sum_{j=1}^k1\otimes\cdots \otimes\hslash^1(-\Quo_f\circ y^i a_j,-\Quo_f\circ y^i b_j)\otimes\cdots\otimes 1\right)_i}"] 
+		\arrow[r, "{\left(\sum_{j=1}^k\hslash^1_j(-\Quo_f\circ y^i a_j,-\Quo_f\circ y^i b_j)\right)_i}"] 
 		& 
 		q^{3-2n}K_{R[y]}\left(\mathbf{\overline a},\mathbf{\overline b}\right)
 		\arrow[d,"s_\hslash"] 
@@ -1231,8 +1234,85 @@ The same recipe works for Reidemeister II moves. The special 0-deformation retra
 	\caption{Invariance under Reidemeister IIb move}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\[\label{r3sdr}
+	\begin{tikzcd}[row sep=0.5cm, column sep=1.5cm]
+		&
+		\scalebox{0.7}{\RLR{k}{n}{n}[4][1]}
+		\arrow[r]
+		\arrow[dr]
+		&
+		\scalebox{0.7}{\RLR{k}{k}{n}[5][2][$\hslash$]}
+		\arrow[dr]
+		&
+		\\
+		\scalebox{0.7}{\RLR{n}{n}{n}[3][0][$\hslash$]} 
+		\arrow[dr]
+		\arrow[r]
+		\arrow[ur]
+		&
+		\scalebox{0.7}{\RLR{n}{k}{n}[4][1]}
+		\arrow[ur, crossing over]
+		\arrow[dr]
+		& 
+		\scalebox{0.7}{\RLR{k}{n}{k}[5][2][$\hslash$]}
+		\arrow[r]
+		& 	
+		\scalebox{0.7}{\RLR{k}{k}{k}[6][3]}
+		\\
+		& 
+		\scalebox{0.7}{\RLR{n}{n}{k}[4][1]} 
+		\arrow[ur, crossing over]
+		\arrow[r]
+		&
+		\scalebox{0.7}{\RLR{n}{k}{k}[5][2][$\hslash$]}
+		\arrow[ur]
+		&
+	\end{tikzcd}
+	\]
+	\caption{Invariance under Reidemeister III move}
+\end{figure}
 
-
+\begin{figure}
+	\centering
+	\[\label{r3sdr}
+	\begin{tikzcd}[row sep=0.5cm, column sep=1.5cm]
+		&
+		\scalebox{0.6}{\RL{k}{n}[4][1]}
+		\arrow[r]
+		\arrow[dr]
+		&
+		\scalebox{0.6}{\RL{k}{k}[5][2][$\hslash$]}
+		\arrow[dr]
+		&
+		\\
+		\scalebox{0.6}{\LR{n}{n}[3][0][$\hslash$]} 
+		\arrow[dr]
+		\arrow[r]
+		\arrow[ur]
+		&
+		\scalebox{0.6}{\LR{k}{n}[4][1]}
+		\arrow[ur, crossing over]
+		\arrow[dr]
+		& 
+		\scalebox{0.6}{\LR{n}{k}[5][2][$\hslash$]}\oplus\scalebox{0.6}{\LR{n}{k}[3][2][$\hslash$]}
+		\arrow[r]
+		& 	
+		\scalebox{0.6}{\LR{n}{k}[6][3]}
+		\\
+		& 
+		\scalebox{0.6}{\LR{n}{k}[4][1]} 
+		\arrow[ur, crossing over]
+		\arrow[r]
+		&
+		\scalebox{0.6}{\LR{k}{k}[5][2][$\hslash$]}
+		\arrow[ur]
+		&
+	\end{tikzcd}
+	\]
+	\caption{Invariance under Reidemeister III move}
+\end{figure}
 
 
 % It is useful to express the special deformation retract afforded by the lemma using this identification. For this purpose, let us introduce the notation 
@@ -1245,9 +1325,6 @@ The same recipe works for Reidemeister II moves. The special 0-deformation retra
 	% \end{tikzcd}$$
 
 %\input{moyrational}
-
-
-
 
 
 
